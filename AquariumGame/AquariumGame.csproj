@@ -68,7 +68,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\BigFish.cs" />
+    <Compile Include="Models\Fish.cs" />
+    <Compile Include="Models\Gun.cs" />
+    <Compile Include="Models\MediumFish.cs" />
+    <Compile Include="Models\SmallFish.cs" />
     <Compile Include="Models\TestM.cs" />
+    <Compile Include="Models\Work.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\GameForm.cs">
