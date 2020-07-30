@@ -27,36 +27,29 @@ namespace AquariumGame.Controllers
 
             if (word[2]==label1.Text)
             {
-                test.GunSetorGetFish(1);
+                test.GunSetorGetFish(0);
             }
             if (word[2] == label2.Text)
             {
-                test.GunSetorGetFish(2);
+                test.GunSetorGetFish(1);
             }
             if (word[2] == label3.Text)
             {
-                test.GunSetorGetFish(3);
+                test.GunSetorGetFish(2);
             }
             if (word[2] == label4.Text)
             {
-                test.GunSetorGetFish(4);
+                test.GunSetorGetFish(3);
             }
             if (word[2] == label5.Text)
             {
-                test.GunSetorGetFish(5);
+                test.GunSetorGetFish(4);
             }
             if (word[2] == label6.Text)
             {
-                test.GunSetorGetFish(6);
+                test.GunSetorGetFish(5);
             }
-            if (word[2] == label7.Text)
-            {
-                test.GunSetorGetFish(7);
-            }
-            if (word[2] == label8.Text)
-            {
-                test.GunSetorGetFish(8);
-            }
+          
 
         }
 
