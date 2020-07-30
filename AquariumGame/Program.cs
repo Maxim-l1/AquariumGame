@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AquariumGame.Views;
-
+using AquariumGame.Controllers;
 namespace AquariumGame
 {
     static class Program
@@ -17,7 +17,7 @@ namespace AquariumGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameForm());
+            Application.Run(new Form2());
         }
     }
 }

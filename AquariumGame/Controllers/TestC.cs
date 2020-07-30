@@ -35,10 +35,10 @@ namespace AquariumGame.Controllers
 
         public void GunSetorGetFish(int StackID ) 
         {
-            if (gun.Content() == null)// потрібен метод який повертає чи є рибка у gun і яка вона
+            if (gun.Content() == null)
             {
-                gun.Set(work.GetStack(StackID));// потрібно передати id бо нема доступу до стеків і в класі work добавити метод що повертає стек по id  
-                //на view добавити обработчик що буде вертати номер колонки
+               
+                gun.Set(work.GetStack(StackID));
             }
             else
             {
@@ -87,6 +87,7 @@ namespace AquariumGame.Controllers
         public void Refresh() // перестворити
         {
             Start();
+           
         }
 
         public void Fun()
