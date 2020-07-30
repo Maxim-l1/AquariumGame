@@ -28,12 +28,21 @@ namespace AquariumGame.Models
 
         public void Set(Stack<Fish> fish) // Приймає останню рибку з конкретної колонки
         {
-            if (shell != new Fish())
+            if (shell.GetType() != new Fish().GetType())
             {
                 return;
             }
             else
                 shell = fish.Pop();
+        }
+
+        public Fish Content()
+        {
+            if (shell.GetType() != new Fish().GetType())
+            {
+                return shell;
+            }
+            return null;
         }
     }
 }
