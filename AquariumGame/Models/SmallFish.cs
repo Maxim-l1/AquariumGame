@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AquariumGame.Models
 {
-    class SmallFish : Fish
+    class SmallFish : Fish // Маленька рибка. Нічого не їсть.
     {
     }
 }

@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace AquariumGame.Models
 {
-    class MediumFish : Fish
+    class MediumFish : Fish // Середня рибка. Може їсти маленьких рибок.
     {
+        public int IsSatisfied { private set; get; } // Кількість зїдених рибок
+
+        public MediumFish()
+        {
+            IsSatisfied = 0;
+        }
+
+        public void Eat(SmallFish sf) //Їсть маленьку рибку
+        {
+            IsSatisfied++;
+        }
     }
 }

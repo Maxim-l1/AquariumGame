@@ -9,12 +9,12 @@ namespace AquariumGame.Models
     class Gun
     {
         Fish shell;
-        public Gun()
+        public Gun() 
         {
             shell = new Fish();
         }
 
-        public Fish Get()
+        public Fish Get() // Повертає рибку в пушці
         {
             if (shell != new Fish())
             {
@@ -26,14 +26,14 @@ namespace AquariumGame.Models
 
         }
 
-        public void Set(Fish fish)
+        public void Set(Stack<Fish> fish) // Приймає останню рибку з конкретної колонки
         {
             if (shell != new Fish())
             {
                 return;
             }
             else
-                shell = fish;
+                shell = fish.Pop();
         }
     }
 }
