@@ -16,7 +16,7 @@ namespace AquariumGame.Models
 
         public Fish Get() // Повертає рибку в пушці
         {
-            if (shell != new Fish())
+            if (shell.GetType() != new Fish().GetType())
             {
                 var temp = shell;
                 shell = new Fish();
