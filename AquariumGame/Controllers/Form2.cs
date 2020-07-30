@@ -17,7 +17,7 @@ namespace AquariumGame.Controllers
         {
             InitializeComponent();
             test = new TestC();
-            test.Start();
+          
         }
 
         private void label2_Click(object sender, EventArgs e)
