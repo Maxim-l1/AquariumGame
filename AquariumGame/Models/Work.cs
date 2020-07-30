@@ -15,10 +15,28 @@ namespace AquariumGame.Models
         Stack<Fish> FourthColumn;//
         Stack<Fish> FifthColumn;//
         Stack<Fish> SixthColumn;//
+        List<Stack<Fish>> Stacks;
 
         public Work()
         {
-            
+            FirstColumn = new Stack<Fish>();
+            SecondColumn = new Stack<Fish>();
+            ThirdColumn = new Stack<Fish>();
+            FourthColumn = new Stack<Fish>();
+            FifthColumn = new Stack<Fish>();
+            SixthColumn = new Stack<Fish>();
+            Stacks = new List<Stack<Fish>>();
+            Stacks.Add(FirstColumn);
+            Stacks.Add(SecondColumn);
+            Stacks.Add(ThirdColumn);
+            Stacks.Add(FourthColumn);
+            Stacks.Add(FifthColumn);
+            Stacks.Add(SixthColumn);
+        }
+
+        public Stack<Fish> GetStack(int index)
+        {
+            return Stacks[index];
         }
 
         public void AddFish() // Додає випадкову рибку в кожну колонку
