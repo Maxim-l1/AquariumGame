@@ -17,6 +17,7 @@ namespace AquariumGame.Controllers
             work.AddFish();
             work.AddFish();
             gun = new Gun();
+
         }
 
         public bool Perevirka(MediumFish a)
