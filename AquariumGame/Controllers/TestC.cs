@@ -33,7 +33,7 @@ namespace AquariumGame.Controllers
         }
 
 
-        public void GunSetorGetFish(int StackID ) 
+        public void GunSetorGetFish(int StackID) 
         {
             if (gun.Content() == null)
             {

@@ -137,5 +137,14 @@
   <ItemGroup>
     <None Include="Resources\depositphotos_99410564-stock-illustration-подводный-мир-синего-моря-морская.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\medium.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\small.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

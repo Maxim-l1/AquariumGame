@@ -41,6 +41,7 @@
             this.Name = "GameForm";
             this.Text = "Aquarium Game";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameForm_Paint);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameForm_MouseClick);
             this.ResumeLayout(false);
 
         }
