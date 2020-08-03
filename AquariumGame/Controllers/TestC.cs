@@ -38,7 +38,37 @@ namespace AquariumGame.Controllers
 
         }
 
-       
+        public void Time()
+        {
+            List<Fish[]> list = new List<Fish[]>();
+            foreach (Stack<Fish> f in work.GetAll())
+            {
+                Fish[] fish = new Fish[f.Count];
+                f.CopyTo(fish,0);
+                list.Add(fish);
+                
+            }
+            list.Reverse();
+            work.AddFish();
+            int i = 0;
+            foreach (Stack<Fish> f in work.GetAll())
+            {
+                f.Concat(list[i]);
+                i++;
+            }
+
+        }
+        public bool GameOver()
+        {
+            foreach (Stack<Fish> f in work.GetAll())
+            {
+                if (f.Count>6)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public void GunSetorGetFish(int StackID) 
         {
             if (gun.Content() == null)
