@@ -21,13 +21,17 @@ namespace AquariumGame.Views
         Image big = Properties.Resources.big;
         Image kanat = Properties.Resources.Kanat;
         Image refresh = Properties.Resources.refresh;
-        int count1, count2, count3, count4, count5, count6;
+        int[] count = new int[6];
 
-        List<Graphics> graphics = new List<Graphics>();
         public GameForm()
         {
             InitializeComponent();
             pictureBox1.Cursor = Cursors.Hand;
+            for (int i = 0; i < 6; i++)
+            {
+                count[i] = 0;
+            }
+            AddFish(1, 1);
         }
 
         private void GameForm_Paint(object sender, PaintEventArgs e)
@@ -58,39 +62,50 @@ namespace AquariumGame.Views
             e.Graphics.DrawLine(p, p1, p2);
             e.Graphics.DrawImage(kanat, 0, 370, 422, 50);
 
+
             //e.Graphics.DrawImage(small, 10, 20, 40, 40);
             //e.Graphics.DrawImage(medium, 80, 15, 50, 50);
             //e.Graphics.DrawImage(big, 145, 5, 65, 65);
+            //e.Graphics.DrawImage(small, 220, 20, 40, 40);
+            //e.Graphics.DrawImage(medium, 290, 15, 50, 50);
+            //e.Graphics.DrawImage(big, 355, 5, 65, 65);
+            ////----------------------------------------------
+            //e.Graphics.DrawImage(small, 10, 85, 40, 40);
+            //e.Graphics.DrawImage(medium, 80, 80, 50, 50);
+            //e.Graphics.DrawImage(big, 145, 70, 65, 65);
+            //e.Graphics.DrawImage(small, 220, 85, 40, 40);
+            //e.Graphics.DrawImage(medium, 290, 80, 50, 50);
+            //e.Graphics.DrawImage(big, 355, 70, 65, 65);
         }
 
         private void GameForm_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Location.X > 0 && e.Location.X < 70 && e.Location.Y < 400)
             {
-                graphics.Add(this.CreateGraphics());
-                graphics[graphics.Count - 1].DrawImage(small, 10, 20, 40, 40);
+                //graphics.Add(this.CreateGraphics());
+                //graphics[graphics.Count - 1].DrawImage(small, 10, 20, 40, 40);
             }
             else if (e.Location.X > 70 && e.Location.X < 140 && e.Location.Y < 400)
             {
-                graphics.Add(this.CreateGraphics());
-                graphics[graphics.Count - 1].DrawImage(medium, 80, 15, 50, 50);
+                //graphics.Add(this.CreateGraphics());
+                //graphics[graphics.Count - 1].DrawImage(medium, 80, 15, 50, 50);
             }
             else if (e.Location.X > 140 && e.Location.X < 210 && e.Location.Y < 400)
             {
-                graphics.Add(this.CreateGraphics());
-                graphics[graphics.Count - 1].DrawImage(big, 145, 5, 65, 65);
+                //graphics.Add(this.CreateGraphics());
+                //graphics[graphics.Count - 1].DrawImage(big, 145, 5, 65, 65);
             }
             else if (e.Location.X > 210 && e.Location.X < 280 && e.Location.Y < 400)
             {
-                MessageBox.Show("4 колонка");
+                //MessageBox.Show("4 колонка");
             }
             else if (e.Location.X > 280 && e.Location.X < 350 && e.Location.Y < 400)
             {
-                MessageBox.Show("5 колонка");
+                //MessageBox.Show("5 колонка");
             }
             else if (e.Location.X > 350 && e.Location.X < 420 && e.Location.Y < 400)
             {
-                MessageBox.Show("6 колонка");
+                //MessageBox.Show("6 колонка");
             }
         }
 
@@ -113,18 +128,40 @@ namespace AquariumGame.Views
 
         private void PaintGame(List<Stack<Fish>> fishes)
         {
+            count = new int[6];
+            for (int i = 0; i < 6; i++)
+            {
+                count[i] = 0;
+            }
             for (int i = 0; i < 6; i++)
             {
                 foreach(var fish in fishes[i])
                 {
-                    
+                    AddFish(fish.GetFishType(), i);
                 }
             }
         }
 
         private void AddFish(int size, int column)
         {
-            //1 - small
+            switch (column)
+            {
+                case 1:
+                    if (size == 1)
+                    {
+                        if (count[0] == 0)
+                        {
+                            g.DrawImage(small, 10, 20, 40, 40);
+                            count[0]++;
+                        }
+                        else
+                        {
+                            g.DrawImage(small, 10, 20 + (count[0] * 65), 40, 40);
+                            count[0]++;
+                        }
+                    }
+                    break;
+            }
         }
     }
 }
