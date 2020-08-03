@@ -75,6 +75,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\BigFish.cs" />
+    <Compile Include="Models\DestroyerFish.cs" />
     <Compile Include="Models\Fish.cs" />
     <Compile Include="Models\Gun.cs" />
     <Compile Include="Models\MediumFish.cs" />
