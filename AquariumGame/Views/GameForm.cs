@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AquariumGame.Controllers;
+using AquariumGame.Models;
 
 namespace AquariumGame.Views
 {
@@ -18,10 +19,14 @@ namespace AquariumGame.Views
         Image small = Properties.Resources.small;
         Image medium = Properties.Resources.medium;
         Image big = Properties.Resources.big;
+        Image kanat = Properties.Resources.Kanat;
+        Image refresh = Properties.Resources.refresh;
+
         List<Graphics> graphics = new List<Graphics>();
         public GameForm()
         {
             InitializeComponent();
+            pictureBox1.Cursor = Cursors.Hand;
         }
 
         private void GameForm_Paint(object sender, PaintEventArgs e)
@@ -50,6 +55,7 @@ namespace AquariumGame.Views
             p1 = new Point(350, 5);// первая точка
             p2 = new Point(350, 400);// вторая точка
             e.Graphics.DrawLine(p, p1, p2);
+            e.Graphics.DrawImage(kanat, 0, 370, 422, 50);
 
             //e.Graphics.DrawImage(small, 10, 20, 40, 40);
             //e.Graphics.DrawImage(medium, 80, 15, 50, 50);
@@ -85,6 +91,28 @@ namespace AquariumGame.Views
             {
                 MessageBox.Show("6 колонка");
             }
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            refresh.RotateFlip(RotateFlipType.Rotate90FlipNone);
+            pictureBox1.Image = refresh;
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            refresh.RotateFlip(RotateFlipType.Rotate270FlipNone);
+            pictureBox1.Image = refresh;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PaintGame(List<Stack<Fish>> fish)
+        {
+
         }
     }
 }
