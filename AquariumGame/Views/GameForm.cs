@@ -21,6 +21,7 @@ namespace AquariumGame.Views
         Image big = Properties.Resources.big;
         Image kanat = Properties.Resources.Kanat;
         Image refresh = Properties.Resources.refresh;
+        int count1, count2, count3, count4, count5, count6;
 
         List<Graphics> graphics = new List<Graphics>();
         public GameForm()
@@ -110,9 +111,20 @@ namespace AquariumGame.Views
 
         }
 
-        private void PaintGame(List<Stack<Fish>> fish)
+        private void PaintGame(List<Stack<Fish>> fishes)
         {
+            for (int i = 0; i < 6; i++)
+            {
+                foreach(var fish in fishes[i])
+                {
+                    
+                }
+            }
+        }
 
+        private void AddFish(int size, int column)
+        {
+            //1 - small
         }
     }
 }
