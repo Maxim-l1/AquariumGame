@@ -73,7 +73,7 @@ namespace AquariumGame.Views
             //e.Graphics.DrawImage(small, 220, 85, 40, 40);
             //e.Graphics.DrawImage(medium, 290, 80, 50, 50);
             //e.Graphics.DrawImage(big, 355, 70, 65, 65);
-        }
+        } //метод для отрисовки линий
 
         private void GameForm_MouseClick(object sender, MouseEventArgs e)
         {
@@ -107,7 +107,8 @@ namespace AquariumGame.Views
                 Game.GunSetorGetFish(5);
                 PaintGame(Game.GetAll());
             }
-        }
+
+        } //метод определяет куда произошло нажатие
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -147,7 +148,7 @@ namespace AquariumGame.Views
                     AddFish(fish.GetFishType(), i);
                 }
             }
-        }
+        } //метод рисует стек
 
         private void AddFish(int size, int column)
         {
@@ -688,6 +689,6 @@ namespace AquariumGame.Views
                     }
                     break;
             }
-        }
+        } //вспомогательный метод для отрисовки стека
     }
 }
