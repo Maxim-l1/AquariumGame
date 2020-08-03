@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AquariumGame.Models
 {
+    [Serializable]
     class Work
     {
         Random rand = new Random(DateTime.Now.Millisecond);
@@ -37,6 +38,11 @@ namespace AquariumGame.Models
         public Stack<Fish> GetStack(int index)
         {
             return Stacks[index];
+        }
+
+        public List<Stack<Fish>> GetAll()
+        {
+            return Stacks;
         }
 
         public void AddFish() // Додає випадкову рибку в кожну колонку
