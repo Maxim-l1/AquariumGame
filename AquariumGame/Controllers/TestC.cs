@@ -37,26 +37,20 @@ namespace AquariumGame.Controllers
 
 
         }
-
-        public void Time()
+        public List<Stack<Fish>> GetAll()
         {
-            List<Fish[]> list = new List<Fish[]>();
+            return work.GetAll();
+        }
+        public void Time(Fish a)
+        {
+          
+          
             foreach (Stack<Fish> f in work.GetAll())
             {
-                Fish[] fish = new Fish[f.Count];
-                f.CopyTo(fish,0);
-                list.Add(fish);
-                
+                f.Push(work.GetRandomFish());
+             
             }
-            list.Reverse();
-            work.AddFish();
-            int i = 0;
-            foreach (Stack<Fish> f in work.GetAll())
-            {
-                f.Concat(list[i]);
-                i++;
-            }
-
+            
         }
         public bool GameOver()
         {
