@@ -146,5 +146,17 @@
   <ItemGroup>
     <None Include="Resources\small.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_10791764-stock-photo-rope-1-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh1png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh_photo-resizer.ru.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

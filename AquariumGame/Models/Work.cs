@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AquariumGame.Models
 {
+    [Serializable]
     class Work
     {
         Random rand = new Random(DateTime.Now.Millisecond);
