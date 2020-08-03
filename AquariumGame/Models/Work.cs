@@ -103,6 +103,17 @@ namespace AquariumGame.Models
                 s.Push(new BigFish());
 
         }
+
+        public Fish GetRandomFish()
+        {
+            var x = rand.Next(3);
+            if (x == 0)
+                return new SmallFish();
+            else if (x == 1)
+                return new MediumFish();
+            else
+                return new BigFish();
+        }
         public void AddFish(Stack<Fish> s, Fish f) // Додає конкретну рибку в конкретну колонку
         {
             s.Push(f);

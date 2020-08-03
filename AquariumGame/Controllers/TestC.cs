@@ -37,8 +37,32 @@ namespace AquariumGame.Controllers
 
 
         }
-
-       
+        public List<Stack<Fish>> GetAll()
+        {
+            return work.GetAll();
+        }
+        public void Time(Fish a)
+        {
+          
+          
+            foreach (Stack<Fish> f in work.GetAll())
+            {
+                f.Push(work.GetRandomFish());
+             
+            }
+            
+        }
+        public bool GameOver()
+        {
+            foreach (Stack<Fish> f in work.GetAll())
+            {
+                if (f.Count>6)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         public void GunSetorGetFish(int StackID) 
         {
             if (gun.Content() == null)
@@ -59,11 +83,13 @@ namespace AquariumGame.Controllers
                     {
                         f.Pop();// видаляю рибу
                         gun.Get();
+                        gun.Score+=3;
                     }
                     else if (b.IsSatisfied == 1)
                     {
                         f.Pop();// видаляю рибу
                         gun.Get();
+                        gun.Score += 3;
                     }
                     else
                     {
@@ -79,6 +105,7 @@ namespace AquariumGame.Controllers
                     {
                         f.Pop();// видаляю рибу
                         gun.Get();
+                        gun.Score += 3;
                     }
                     else
                     {
@@ -113,20 +140,26 @@ namespace AquariumGame.Controllers
         }
         public void Upload()
         {
-             formatter = new BinaryFormatter();
-
-
-            using (FileStream fs = new FileStream("Save.txt", FileMode.OpenOrCreate))
+            if (File.Exists("Save.txt"))
             {
-              
-                Work stack = (Work)formatter.Deserialize(fs);
-               
+                formatter = new BinaryFormatter();
+
+
+                using (FileStream fs = new FileStream("Save.txt", FileMode.OpenOrCreate))
+                {
+
+                    Work stack = (Work)formatter.Deserialize(fs);
+
+                }
+
             }
-
-
+            
         }
 
-
+        public int GetScore()
+        {
+            return gun.Score;
+        }
 
     }
 }

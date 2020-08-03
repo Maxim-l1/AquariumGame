@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace AquariumGame.Models
 {
+    [Serializable]
     class Gun
     {
-        Fish shell;
+        public Fish shell;
+        public int Score { set; get; }
         public Gun() 
         {
             shell = new Fish();
