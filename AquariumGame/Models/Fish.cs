@@ -8,6 +8,16 @@ namespace AquariumGame.Models
 {
     class Fish // Клас створений для того, щоб різних рибок можна було класти в колекцію одного типу.
     {
-
+        public int GetFishType()
+        {
+            if (this.GetType().ToString() == new SmallFish().GetType().ToString())
+                return 1;
+            else if (this.GetType().ToString() == new MediumFish().GetType().ToString())
+                return 2;
+            else if (this.GetType().ToString() == new BigFish().GetType().ToString())
+                return 3;
+            else
+                return 0;
+        }
     }
 }
