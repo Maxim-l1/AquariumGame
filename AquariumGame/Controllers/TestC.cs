@@ -44,11 +44,18 @@ namespace AquariumGame.Controllers
         public void Time(Fish a)
         {
           
-          
             foreach (Stack<Fish> f in work.GetAll())
             {
-                f.Push(work.GetRandomFish());
-             
+               
+                List<Fish> list = f.ToList<Fish>();
+                list.Add(work.GetRandomFish());
+                f.Clear();
+                foreach (Fish fish in list)
+                {
+                    f.Push(fish);
+
+                }
+
             }
             
         }
