@@ -59,11 +59,13 @@ namespace AquariumGame.Controllers
                     {
                         f.Pop();// видаляю рибу
                         gun.Get();
+                        gun.Score+=3;
                     }
                     else if (b.IsSatisfied == 1)
                     {
                         f.Pop();// видаляю рибу
                         gun.Get();
+                        gun.Score += 3;
                     }
                     else
                     {
@@ -79,6 +81,7 @@ namespace AquariumGame.Controllers
                     {
                         f.Pop();// видаляю рибу
                         gun.Get();
+                        gun.Score += 3;
                     }
                     else
                     {
@@ -113,20 +116,26 @@ namespace AquariumGame.Controllers
         }
         public void Upload()
         {
-             formatter = new BinaryFormatter();
-
-
-            using (FileStream fs = new FileStream("Save.txt", FileMode.OpenOrCreate))
+            if (File.Exists("Save.txt"))
             {
-              
-                Work stack = (Work)formatter.Deserialize(fs);
-               
+                formatter = new BinaryFormatter();
+
+
+                using (FileStream fs = new FileStream("Save.txt", FileMode.OpenOrCreate))
+                {
+
+                    Work stack = (Work)formatter.Deserialize(fs);
+
+                }
+
             }
-
-
+            
         }
 
-
+        public int GetScore()
+        {
+            return gun.Score;
+        }
 
     }
 }
