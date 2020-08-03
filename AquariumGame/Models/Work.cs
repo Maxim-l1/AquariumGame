@@ -39,6 +39,11 @@ namespace AquariumGame.Models
             return Stacks[index];
         }
 
+        public List<Stack<Fish>> GetAll()
+        {
+            return Stacks;
+        }
+
         public void AddFish() // Додає випадкову рибку в кожну колонку
         {
             var x = rand.Next(3);
