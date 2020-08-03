@@ -16,22 +16,20 @@ namespace AquariumGame.Views
 {
     public partial class GameForm : Form
     {
+        TestC Game = new TestC();
         Image small = Properties.Resources.small;
         Image medium = Properties.Resources.medium;
         Image big = Properties.Resources.big;
         Image kanat = Properties.Resources.Kanat;
         Image refresh = Properties.Resources.refresh;
+        List<PictureBox> pictureBoxes = new List<PictureBox>();
         int[] count = new int[6];
 
         public GameForm()
         {
             InitializeComponent();
             pictureBox1.Cursor = Cursors.Hand;
-            for (int i = 0; i < 6; i++)
-            {
-                count[i] = 0;
-            }
-            AddFish(1, 1);
+            Game.Start();
         }
 
         private void GameForm_Paint(object sender, PaintEventArgs e)
@@ -62,7 +60,6 @@ namespace AquariumGame.Views
             e.Graphics.DrawLine(p, p1, p2);
             e.Graphics.DrawImage(kanat, 0, 370, 422, 50);
 
-
             //e.Graphics.DrawImage(small, 10, 20, 40, 40);
             //e.Graphics.DrawImage(medium, 80, 15, 50, 50);
             //e.Graphics.DrawImage(big, 145, 5, 65, 65);
@@ -82,30 +79,33 @@ namespace AquariumGame.Views
         {
             if (e.Location.X > 0 && e.Location.X < 70 && e.Location.Y < 400)
             {
-                //graphics.Add(this.CreateGraphics());
-                //graphics[graphics.Count - 1].DrawImage(small, 10, 20, 40, 40);
+                Game.GunSetorGetFish(0);
+                PaintGame(Game.GetAll());
             }
             else if (e.Location.X > 70 && e.Location.X < 140 && e.Location.Y < 400)
             {
-                //graphics.Add(this.CreateGraphics());
-                //graphics[graphics.Count - 1].DrawImage(medium, 80, 15, 50, 50);
+                Game.GunSetorGetFish(1);
+                PaintGame(Game.GetAll());
             }
             else if (e.Location.X > 140 && e.Location.X < 210 && e.Location.Y < 400)
             {
-                //graphics.Add(this.CreateGraphics());
-                //graphics[graphics.Count - 1].DrawImage(big, 145, 5, 65, 65);
+                Game.GunSetorGetFish(2);
+                PaintGame(Game.GetAll());
             }
             else if (e.Location.X > 210 && e.Location.X < 280 && e.Location.Y < 400)
             {
-                //MessageBox.Show("4 колонка");
+                Game.GunSetorGetFish(3);
+                PaintGame(Game.GetAll());
             }
             else if (e.Location.X > 280 && e.Location.X < 350 && e.Location.Y < 400)
             {
-                //MessageBox.Show("5 колонка");
+                Game.GunSetorGetFish(4);
+                PaintGame(Game.GetAll());
             }
             else if (e.Location.X > 350 && e.Location.X < 420 && e.Location.Y < 400)
             {
-                //MessageBox.Show("6 колонка");
+                Game.GunSetorGetFish(5);
+                PaintGame(Game.GetAll());
             }
         }
 
@@ -123,7 +123,7 @@ namespace AquariumGame.Views
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            Game.Refresh();
         }
 
         private void PaintGame(List<Stack<Fish>> fishes)
@@ -133,9 +133,16 @@ namespace AquariumGame.Views
             {
                 count[i] = 0;
             }
+            foreach(var x in pictureBoxes)
+            {
+                x.Visible = false;
+                x.Dispose();
+            }
+            pictureBoxes.Clear();
+
             for (int i = 0; i < 6; i++)
             {
-                foreach(var fish in fishes[i])
+                foreach (var fish in fishes[i])
                 {
                     AddFish(fish.GetFishType(), i);
                 }
@@ -151,13 +158,532 @@ namespace AquariumGame.Views
                     {
                         if (count[0] == 0)
                         {
-                            g.DrawImage(small, 10, 20, 40, 40);
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(5, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
                             count[0]++;
                         }
                         else
                         {
-                            g.DrawImage(small, 10, 20 + (count[0] * 65), 40, 40);
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(5, 5 + (count[0] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
                             count[0]++;
+                        }
+                    }
+                    else if (size == 2)
+                    {
+                        if (count[0] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(5, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[0]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(5, 5 + (count[0] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[0]++;
+                        }
+                    }
+                    else if (size == 3)
+                    {
+                        if (count[0] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(5, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[0]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(5, 5 + (count[0] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[0]++;
+                        }
+                    }
+                    break;
+                case 2:
+                    if (size == 1)
+                    {
+                        if (count[1] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(75, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[1]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(75, 5 + (count[1] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[1]++;
+                        }
+                    }
+                    else if (size == 2)
+                    {
+                        if (count[1] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(75, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[1]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(75, 5 + (count[1] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[1]++;
+                        }
+                    }
+                    else if (size == 3)
+                    {
+                        if (count[1] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(75, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[1]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(75, 5 + (count[1] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[1]++;
+                        }
+                    }
+                    break;
+                case 3:
+                    if (size == 1)
+                    {
+                        if (count[2] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(145, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[2]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(145, 5 + (count[2] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[2]++;
+                        }
+                    }
+                    else if (size == 2)
+                    {
+                        if (count[2] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(145, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[2]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(145, 5 + (count[2] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[2]++;
+                        }
+                    }
+                    else if (size == 3)
+                    {
+                        if (count[2] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(145, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[2]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(145, 5 + (count[2] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[2]++;
+                        }
+                    }
+                    break;
+                case 4:
+                    if (size == 1)
+                    {
+                        if (count[3] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(215, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[3]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(215, 5 + (count[3] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[3]++;
+                        }
+                    }
+                    else if (size == 2)
+                    {
+                        if (count[3] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(215, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[3]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(215, 5 + (count[3] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[3]++;
+                        }
+                    }
+                    else if (size == 3)
+                    {
+                        if (count[3] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(215, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[3]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(215, 5 + (count[3] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[3]++;
+                        }
+                    }
+                    break;
+                case 5:
+                    if (size == 1)
+                    {
+                        if (count[4] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(285, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[4]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(285, 5 + (count[4] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[4]++;
+                        }
+                    }
+                    else if (size == 2)
+                    {
+                        if (count[4] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(285, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[4]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(285, 5 + (count[4] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[4]++;
+                        }
+                    }
+                    else if (size == 3)
+                    {
+                        if (count[4] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(285, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[4]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(285, 5 + (count[4] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[4]++;
+                        }
+                    }
+                    break;
+                case 6:
+                    if (size == 1)
+                    {
+                        if (count[5] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(355, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[5]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = small;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(355, 5 + (count[5] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[5]++;
+                        }
+                    }
+                    else if (size == 2)
+                    {
+                        if (count[5] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(355, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[5]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = medium;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(355, 5 + (count[5] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[5]++;
+                        }
+                    }
+                    else if (size == 3)
+                    {
+                        if (count[5] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(355, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[5]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(355, 5 + (count[5] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(new PictureBox());
+                            count[5]++;
                         }
                     }
                     break;
