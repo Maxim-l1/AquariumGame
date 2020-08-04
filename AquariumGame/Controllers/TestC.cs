@@ -93,20 +93,61 @@ namespace AquariumGame.Controllers
 
                 if (f[f.Count - 1].GetType() == new DestroyerFish().GetType())
                 {
+                    List<Fish> f1=new List<Fish>();
+                    List<Fish> f2 = new List<Fish>(); 
                     if (ListID>1 && ListID<5)
                     {
-                        List<Fish> f1 = work.GetStack(ListID - 1);
+                         f1 = work.GetStack(ListID - 1);
                     }
                     if (ListID > 1 && ListID < 5)
                     {
-                        List<Fish> f1 = work.GetStack(ListID - 1);
+                        f2 = work.GetStack(ListID + 1);
                     }
-                    //if ()
-                    //{
-                        
-                    //}
-                      f.RemoveAt(f.Count - 1);
+                    int count = f.Count - 1;
+                    if (f1.Count!=0)
+                    {
+                        if (f1.Count == f.Count + 1)
+                        {
+                            f1.RemoveAt(count + 1);
 
+                            f1.RemoveAt(count);
+
+                            f1.RemoveAt(count - 1);
+                        }
+                        else if (f1.Count == f.Count)
+                        {
+                            f1.RemoveAt(count);
+
+                            f1.RemoveAt(count - 1);
+                        }
+                        else if (f1.Count == f.Count -1)
+                        {
+                            f1.RemoveAt(count - 1);
+                        }
+                    }
+                    if (f2.Count != 0)
+                    {
+                        if (f2.Count == f.Count + 1)
+                        {
+                            f2.RemoveAt(count + 1);
+
+                            f2.RemoveAt(count);
+
+                            f2.RemoveAt(count - 1);
+                        }
+                        else if (f2.Count == f.Count)
+                        {
+                            f2.RemoveAt(count);
+
+                            f2.RemoveAt(count - 1);
+                        }
+                        else if (f2.Count == f.Count - 1)
+                        {
+                            f2.RemoveAt(count - 1);
+                        }
+                    }
+                      f.RemoveAt(f.Count - 1);
+                    f.RemoveAt(f.Count - 2);
 
                 }
                 else if (f.Count == 0)
