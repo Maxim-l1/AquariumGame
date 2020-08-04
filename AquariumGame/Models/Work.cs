@@ -50,57 +50,57 @@ namespace AquariumGame.Models
 
         public void AddFish() // Додає випадкову рибку в кожну колонку
         {
-            var x = rand.Next(4);
-            if (x == 0)
+            var x = rand.Next(100);
+            if (0 <= x && x < 40)
                 FirstColumn.Add(new SmallFish());
-            else if (x == 1)
+            else if (x >= 40 && x < 70)
                 FirstColumn.Add(new MediumFish());
-            else if (x == 2)
+            else if (x >= 70 && x <= 90)
                 FirstColumn.Add(new DestroyerFish());
             else
                 FirstColumn.Add(new BigFish());
-            x = rand.Next(4);
-            if (x == 0)
+            x = rand.Next(100);
+            if (0 <= x && x < 40)
                 SecondColumn.Add(new SmallFish());
-            else if (x == 1)
+            else if (x >= 40 && x < 70)
                 SecondColumn.Add(new MediumFish());
-            else if (x == 2)
+            else if (x >= 70 && x <= 90)
                 SecondColumn.Add(new DestroyerFish());
             else
                 SecondColumn.Add(new BigFish());
-            x = rand.Next(4);
-            if (x == 0)
+            x = rand.Next(100);
+            if (0 <= x && x < 40)
                 ThirdColumn.Add(new SmallFish());
-            else if (x == 1)
+            else if (x >= 40 && x < 70)
                 ThirdColumn.Add(new MediumFish());
-            else if (x == 2)
+            else if (x >= 70 && x <= 90)
                 ThirdColumn.Add(new DestroyerFish());
             else
                 ThirdColumn.Add(new BigFish());
-            x = rand.Next(4);
-            if (x == 0)
+            x = rand.Next(100);
+            if (0 <= x && x < 40)
                 FourthColumn.Add(new SmallFish());
-            else if (x == 1)
+            else if (x >= 40 && x < 70)
                 FourthColumn.Add(new MediumFish());
-            else if (x == 2)
+            else if (x >= 70 && x <= 90)
                 FourthColumn.Add(new DestroyerFish());
             else
                 FourthColumn.Add(new BigFish());
-            x = rand.Next(4);
-            if (x == 0)
+            x = rand.Next(100);
+            if (0 <= x && x < 40)
                 FifthColumn.Add(new SmallFish());
-            else if (x == 1)
+            else if (x >= 40 && x < 70)
                 FifthColumn.Add(new MediumFish());
-            else if (x == 2)
+            else if (x >= 70 && x <= 90)
                 FifthColumn.Add(new DestroyerFish());
             else
                 FifthColumn.Add(new BigFish());
-            x = rand.Next(4);
-            if (x == 0)
+            x = rand.Next(100);
+            if (0 <= x && x < 40)
                 SixthColumn.Add(new SmallFish());
-            else if (x == 1)
+            else if (x >= 40 && x < 70)
                 SixthColumn.Add(new MediumFish());
-            else if (x == 2)
+            else if (x >= 70 && x <= 90)
                 SixthColumn.Add(new DestroyerFish());
             else
                 SixthColumn.Add(new BigFish());
