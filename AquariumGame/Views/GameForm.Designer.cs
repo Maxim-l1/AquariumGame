@@ -96,6 +96,7 @@
             // 
             // AddFishTimer
             // 
+            this.AddFishTimer.Interval = 500;
             this.AddFishTimer.Tick += new System.EventHandler(this.AddFishTimer_Tick);
             // 
             // GameForm

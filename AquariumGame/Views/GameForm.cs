@@ -718,8 +718,6 @@ namespace AquariumGame.Views
         private void AddFishTimer_Tick(object sender, EventArgs e)
         {
             Game.Addmorefish();
-            PaintGame(Game.GetAll());
-            label1.Text = Convert.ToString(Game.GetScore());
         }
     }
 }
