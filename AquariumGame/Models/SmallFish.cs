@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AquariumGame.Models
 {
+    [Serializable]
     class SmallFish : Fish // Маленька рибка. Нічого не їсть.
     {
     }
