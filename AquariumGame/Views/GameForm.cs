@@ -32,6 +32,8 @@ namespace AquariumGame.Views
             Game.Start();
             PaintGame(Game.GetAll());
             label1.Text = Convert.ToString(0);
+            IsGameOver.Start();
+            AddFishTimer.Start();
         }
 
         private void GameForm_Paint(object sender, PaintEventArgs e)// метод для отрисовки линий
@@ -120,6 +122,7 @@ namespace AquariumGame.Views
         {
             Game.Refresh();
             PaintGame(Game.GetAll());
+            label1.Text = Convert.ToString(Game.GetScore());
         }
 
         private void PaintGame(List<List<Fish>> fishes) //метод рисует стек
@@ -689,11 +692,34 @@ namespace AquariumGame.Views
         private void Save_Click(object sender, EventArgs e)
         {
             Game.Save();
+            MessageBox.Show("Вы успешно сохранили игру!");
         }
 
         private void Download_Click(object sender, EventArgs e)
         {
             Game.Upload();
+            MessageBox.Show("Вы успешно загрузили игру!");
+        }
+
+        private void IsGameOver_Tick(object sender, EventArgs e)
+        {
+            Game.Time();
+            PaintGame(Game.GetAll());
+            label1.Text = Convert.ToString(Game.GetScore());
+            if (Game.GameOver() == true)
+            {
+                MessageBox.Show("Вы проиграли");
+                Game.Refresh();
+                PaintGame(Game.GetAll());
+                label1.Text = Convert.ToString(Game.GetScore());
+            }
+        }
+
+        private void AddFishTimer_Tick(object sender, EventArgs e)
+        {
+            Game.Addmorefish();
+            PaintGame(Game.GetAll());
+            label1.Text = Convert.ToString(Game.GetScore());
         }
     }
 }
