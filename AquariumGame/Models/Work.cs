@@ -10,23 +10,23 @@ namespace AquariumGame.Models
     class Work
     {
         Random rand = new Random(DateTime.Now.Millisecond);
-        Stack<Fish> FirstColumn;//
-        Stack<Fish> SecondColumn;//
-        Stack<Fish> ThirdColumn;// Клонки з рибками
-        Stack<Fish> FourthColumn;//
-        Stack<Fish> FifthColumn;//
-        Stack<Fish> SixthColumn;//
-        List<Stack<Fish>> Stacks;
+        List<Fish> FirstColumn;//
+        List<Fish> SecondColumn;//
+        List<Fish> ThirdColumn;// Клонки з рибками
+        List<Fish> FourthColumn;//
+        List<Fish> FifthColumn;//
+        List<Fish> SixthColumn;//
+        List<List<Fish>> Stacks;
 
         public Work()
         {
-            FirstColumn = new Stack<Fish>();
-            SecondColumn = new Stack<Fish>();
-            ThirdColumn = new Stack<Fish>();
-            FourthColumn = new Stack<Fish>();
-            FifthColumn = new Stack<Fish>();
-            SixthColumn = new Stack<Fish>();
-            Stacks = new List<Stack<Fish>>();
+            FirstColumn = new List<Fish>();
+            SecondColumn = new List<Fish>();
+            ThirdColumn = new List<Fish>();
+            FourthColumn = new List<Fish>();
+            FifthColumn = new List<Fish>();
+            SixthColumn = new List<Fish>();
+            Stacks = new List<List<Fish>>();
             Stacks.Add(FirstColumn);
             Stacks.Add(SecondColumn);
             Stacks.Add(ThirdColumn);
@@ -35,12 +35,12 @@ namespace AquariumGame.Models
             Stacks.Add(SixthColumn);
         }
 
-        public Stack<Fish> GetStack(int index)
+        public List<Fish> GetStack(int index)
         {
             return Stacks[index];
         }
 
-        public List<Stack<Fish>> GetAll()
+        public List<List<Fish>> GetAll()
         {
             return Stacks;
         }
@@ -49,58 +49,58 @@ namespace AquariumGame.Models
         {
             var x = rand.Next(3);
             if (x == 0)
-                FirstColumn.Push(new SmallFish());
+                FirstColumn.Add(new SmallFish());
             else if (x == 1)
-                FirstColumn.Push(new MediumFish());
+                FirstColumn.Add(new MediumFish());
             else
-                FirstColumn.Push(new BigFish());
+                FirstColumn.Add(new BigFish());
             x = rand.Next(3);
             if (x == 0)
-                SecondColumn.Push(new SmallFish());
+                SecondColumn.Add(new SmallFish());
             else if (x == 1)
-                SecondColumn.Push(new MediumFish());
+                SecondColumn.Add(new MediumFish());
             else
-                SecondColumn.Push(new BigFish());
+                SecondColumn.Add(new BigFish());
             x = rand.Next(3);
             if (x == 0)
-                ThirdColumn.Push(new SmallFish());
+                ThirdColumn.Add(new SmallFish());
             else if (x == 1)
-                ThirdColumn.Push(new MediumFish());
+                ThirdColumn.Add(new MediumFish());
             else
-                ThirdColumn.Push(new BigFish());
+                ThirdColumn.Add(new BigFish());
             x = rand.Next(3);
             if (x == 0)
-                FourthColumn.Push(new SmallFish());
+                FourthColumn.Add(new SmallFish());
             else if (x == 1)
-                FourthColumn.Push(new MediumFish());
+                FourthColumn.Add(new MediumFish());
             else
-                FourthColumn.Push(new BigFish());
+                FourthColumn.Add(new BigFish());
             x = rand.Next(3);
             if (x == 0)
-                FifthColumn.Push(new SmallFish());
+                FifthColumn.Add(new SmallFish());
             else if (x == 1)
-                FifthColumn.Push(new MediumFish());
+                FifthColumn.Add(new MediumFish());
             else
-                FifthColumn.Push(new BigFish());
+                FifthColumn.Add(new BigFish());
             x = rand.Next(3);
             if (x == 0)
-                SixthColumn.Push(new SmallFish());
+                SixthColumn.Add(new SmallFish());
             else if (x == 1)
-                SixthColumn.Push(new MediumFish());
+                SixthColumn.Add(new MediumFish());
             else
-                SixthColumn.Push(new BigFish());
+                SixthColumn.Add(new BigFish());
             x = rand.Next(3);
 
         }
-        public void AddFish(Stack<Fish> s) // Додає випадкву рибку в конкретну колонку
+        public void AddFish(List<Fish> s) // Додає випадкву рибку в конкретну колонку
         {
             var x = rand.Next(3);
             if (x == 0)
-                s.Push(new SmallFish());
+                s.Add(new SmallFish());
             else if(x == 1)
-                s.Push(new MediumFish());
+                s.Add(new MediumFish());
             else
-                s.Push(new BigFish());
+                s.Add(new BigFish());
 
         }
 
@@ -114,9 +114,9 @@ namespace AquariumGame.Models
             else
                 return new BigFish();
         }
-        public void AddFish(Stack<Fish> s, Fish f) // Додає конкретну рибку в конкретну колонку
+        public void AddFish(List<Fish> s, Fish f) // Додає конкретну рибку в конкретну колонку
         {
-            s.Push(f);
+            s.Add(f);
         }
 
     }

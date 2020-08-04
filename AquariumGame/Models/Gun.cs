@@ -20,21 +20,23 @@ namespace AquariumGame.Models
         {
             if (shell.GetType() != new Fish().GetType())
             {
-               
-                return shell;
+                var temp = shell;
+                shell = new Fish();
+                return temp;
             }
             return null;
 
         }
 
-        public void Set(Stack<Fish> fish) // Приймає останню рибку з конкретної колонки
+        public void Set(List<Fish> fish) // Приймає останню рибку з конкретної колонки
         {
             if (shell.GetType() != new Fish().GetType())
             {
                 return;
             }
             else
-                shell = fish.Pop();
+                shell = fish[fish.Count-1];
+            fish.RemoveAt(fish.Count - 1);
         }
 
         public Fish Content()
