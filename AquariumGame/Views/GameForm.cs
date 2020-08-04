@@ -30,8 +30,7 @@ namespace AquariumGame.Views
             InitializeComponent();
             pictureBox1.Cursor = Cursors.Hand;
             Game.Start();
-            timer1.Start();
-            timer2.Start();
+     
         }
       
         private void GameForm_Paint(object sender, PaintEventArgs e)
