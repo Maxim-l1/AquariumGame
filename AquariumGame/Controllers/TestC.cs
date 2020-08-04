@@ -36,6 +36,22 @@ namespace AquariumGame.Controllers
 
 
         }
+        public void Addmorefish()
+        {
+            int count=0;
+            foreach (List<Fish> f in work.GetAll())
+            {
+                if (f.Count==0)
+                {
+                    count++;
+                }
+            }
+            if (count > 4)
+            {
+                work.AddFish();
+                work.AddFish();
+            }
+        }
         public List<List<Fish>> GetAll()
         {
             return work.GetAll();
