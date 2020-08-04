@@ -30,8 +30,10 @@ namespace AquariumGame.Views
             InitializeComponent();
             pictureBox1.Cursor = Cursors.Hand;
             Game.Start();
+            timer1.Start();
+            timer2.Start();
         }
-
+      
         private void GameForm_Paint(object sender, PaintEventArgs e)
         {
             Pen p = new Pen(Color.White, 3);// цвет линии и ширина
@@ -80,32 +82,32 @@ namespace AquariumGame.Views
             if (e.Location.X > 0 && e.Location.X < 70 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(0);
-                PaintGame(Game.GetAll());
+               
             }
             else if (e.Location.X > 70 && e.Location.X < 140 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(1);
-                PaintGame(Game.GetAll());
+                
             }
             else if (e.Location.X > 140 && e.Location.X < 210 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(2);
-                PaintGame(Game.GetAll());
+              
             }
             else if (e.Location.X > 210 && e.Location.X < 280 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(3);
-                PaintGame(Game.GetAll());
+                
             }
             else if (e.Location.X > 280 && e.Location.X < 350 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(4);
-                PaintGame(Game.GetAll());
+                
             }
             else if (e.Location.X > 350 && e.Location.X < 420 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(5);
-                PaintGame(Game.GetAll());
+                
             }
 
         } //метод определяет куда произошло нажатие
@@ -690,5 +692,25 @@ namespace AquariumGame.Views
                     break;
             }
         } //вспомогательный метод для отрисовки стека
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (Game.GameOver())
+            {
+                timer1.Stop();
+                MessageBox.Show("you lose");
+
+                Close();
+            }
+           
+            PaintGame(Game.GetAll());
+            
+             
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            Game.Time();
+        }
     }
 }

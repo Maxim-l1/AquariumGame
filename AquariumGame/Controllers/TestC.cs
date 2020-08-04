@@ -40,21 +40,21 @@ namespace AquariumGame.Controllers
         {
             return work.GetAll();
         }
-        public void Time(Fish a)
+        public void Time()
         {
           
             foreach (Stack<Fish> f in work.GetAll())
             {
                
-                List<Fish> list = f.ToList<Fish>();
-                list.Add(work.GetRandomFish());
-                f.Clear();
-                foreach (Fish fish in list)
-                {
-                    f.Push(fish);
+                //List<Fish> list = f.ToList<Fish>();
+                //list.Add(work.GetRandomFish());
+                //f.Clear();
+                //foreach (Fish fish in list)
+                //{
+                //    f.Push(fish);
 
-                }
-
+                //}
+                f.Push(work.GetRandomFish());
             }
             
         }
@@ -71,17 +71,17 @@ namespace AquariumGame.Controllers
         }
         public void GunSetorGetFish(int StackID) 
         {
-            if (gun.Content() == null)
+            if (work.GetStack(StackID).Count !=0 && gun.Content() == null && work.GetStack(StackID).Peek().GetType() != new BigFish().GetType())
             {
                
                 gun.Set(work.GetStack(StackID));
             }
-            else
+            else if(gun.Content() != null)
             {
                 Stack<Fish> f = work.GetStack(StackID);
                
                
-                if (f.Peek().GetType() == new BigFish().GetType() && gun.Content().GetType() == new MediumFish().GetType())// потрібен метод який повертає чи є рибка у gun і яка вона
+                if (gun.Content()!=null && f.Peek().GetType() == new BigFish().GetType() && gun.Content().GetType() == new MediumFish().GetType())// потрібен метод який повертає чи є рибка у gun і яка вона
                 {
                     BigFish b = (BigFish)f.Peek();
                     

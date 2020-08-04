@@ -20,9 +20,8 @@ namespace AquariumGame.Models
         {
             if (shell.GetType() != new Fish().GetType())
             {
-                var temp = shell;
-                shell = new Fish();
-                return temp;
+               
+                return shell;
             }
             return null;
 
