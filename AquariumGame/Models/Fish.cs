@@ -17,6 +17,8 @@ namespace AquariumGame.Models
                 return 2;
             else if (this.GetType().ToString() == new BigFish().GetType().ToString())
                 return 3;
+            else if (this.GetType().ToString() == new DestroyerFish().GetType().ToString())
+                return 4;
             else
                 return 0;
         }

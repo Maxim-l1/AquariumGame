@@ -22,6 +22,7 @@ namespace AquariumGame.Views
         Image big = Properties.Resources.big;
         Image kanat = Properties.Resources.Kanat;
         Image refresh = Properties.Resources.refresh;
+        Image danger = Properties.Resources.danger;
         List<PictureBox> pictureBoxes = new List<PictureBox>();
         int[] count = new int[6];
 
@@ -240,6 +241,35 @@ namespace AquariumGame.Views
                             count[0]++;
                         }
                     }
+                    else if (size == 4)
+                    {
+                        if (count[0] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(5, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[0]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(5, 5 + (count[0] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[0]++;
+                        }
+                    }
                     break;
                 case 1:
                     if (size == 1)
@@ -319,6 +349,35 @@ namespace AquariumGame.Views
                         {
                             PictureBox New = new PictureBox();
                             New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(75, 5 + (count[1] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[1]++;
+                        }
+                    }
+                    else if (size == 4)
+                    {
+                        if (count[1] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(75, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[1]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
                             New.SizeMode = PictureBoxSizeMode.CenterImage;
                             New.Width = 65;
                             New.Height = 65;
@@ -418,6 +477,35 @@ namespace AquariumGame.Views
                             count[2]++;
                         }
                     }
+                    else if (size == 4)
+                    {
+                        if (count[2] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(145, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[2]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(145, 5 + (count[2] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[2]++;
+                        }
+                    }
                     break;
                 case 3:
                     if (size == 1)
@@ -497,6 +585,35 @@ namespace AquariumGame.Views
                         {
                             PictureBox New = new PictureBox();
                             New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(215, 5 + (count[3] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[3]++;
+                        }
+                    }
+                    else if (size == 4)
+                    {
+                        if (count[3] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(215, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[3]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
                             New.SizeMode = PictureBoxSizeMode.CenterImage;
                             New.Width = 65;
                             New.Height = 65;
@@ -596,6 +713,35 @@ namespace AquariumGame.Views
                             count[4]++;
                         }
                     }
+                    else if (size == 4)
+                    {
+                        if (count[4] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(285, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[4]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(285, 5 + (count[4] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[4]++;
+                        }
+                    }
                     break;
                 case 5:
                     if (size == 1)
@@ -675,6 +821,35 @@ namespace AquariumGame.Views
                         {
                             PictureBox New = new PictureBox();
                             New.Image = big;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(355, 5 + (count[5] * 65));
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[5]++;
+                        }
+                    }
+                    else if (size == 4)
+                    {
+                        if (count[5] == 0)
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
+                            New.SizeMode = PictureBoxSizeMode.CenterImage;
+                            New.Width = 65;
+                            New.Height = 65;
+                            New.Location = new Point(355, 5);
+                            New.BackColor = Color.Transparent;
+                            Controls.Add(New);
+                            pictureBoxes.Add(New);
+                            count[5]++;
+                        }
+                        else
+                        {
+                            PictureBox New = new PictureBox();
+                            New.Image = danger;
                             New.SizeMode = PictureBoxSizeMode.CenterImage;
                             New.Width = 65;
                             New.Height = 65;
