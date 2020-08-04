@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Save = new System.Windows.Forms.Button();
+            this.Download = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,10 +40,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(348, 442);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(464, 544);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 46);
+            this.pictureBox1.Size = new System.Drawing.Size(60, 57);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -48,26 +51,68 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
+            // Save
+            // 
+            this.Save.BackColor = System.Drawing.SystemColors.Highlight;
+            this.Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Save.Location = new System.Drawing.Point(12, 555);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(166, 68);
+            this.Save.TabIndex = 1;
+            this.Save.Text = "Сохранить прогресс";
+            this.Save.UseVisualStyleBackColor = false;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // Download
+            // 
+            this.Download.BackColor = System.Drawing.SystemColors.Highlight;
+            this.Download.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Download.Location = new System.Drawing.Point(184, 555);
+            this.Download.Name = "Download";
+            this.Download.Size = new System.Drawing.Size(163, 68);
+            this.Download.TabIndex = 2;
+            this.Download.Text = "Загрузить прогресс";
+            this.Download.UseVisualStyleBackColor = false;
+            this.Download.Click += new System.EventHandler(this.Download_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(353, 570);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(92, 31);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "label1";
+            // 
             // GameForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AquariumGame.Properties.Resources.depositphotos_99410564_stock_illustration_подводный_мир_синего_моря_морская;
-            this.ClientSize = new System.Drawing.Size(422, 516);
+            this.ClientSize = new System.Drawing.Size(563, 635);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Download);
+            this.Controls.Add(this.Save);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GameForm";
             this.Text = "Aquarium Game";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameForm_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameForm_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button Save;
+        private System.Windows.Forms.Button Download;
+        private System.Windows.Forms.Label label1;
     }
 }

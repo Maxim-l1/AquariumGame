@@ -31,6 +31,7 @@ namespace AquariumGame.Views
             pictureBox1.Cursor = Cursors.Hand;
             Game.Start();
             PaintGame(Game.GetAll());
+            label1.Text = Convert.ToString(0);
         }
 
         private void GameForm_Paint(object sender, PaintEventArgs e)// метод для отрисовки линий
@@ -68,31 +69,37 @@ namespace AquariumGame.Views
             {
                 Game.GunSetorGetFish(0);
                 PaintGame(Game.GetAll());
+                label1.Text = Convert.ToString(Game.GetScore());
             }
             else if (e.Location.X > 70 && e.Location.X < 140 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(1);
                 PaintGame(Game.GetAll());
+                label1.Text = Convert.ToString(Game.GetScore());
             }
             else if (e.Location.X > 140 && e.Location.X < 210 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(2);
                 PaintGame(Game.GetAll());
+                label1.Text = Convert.ToString(Game.GetScore());
             }
             else if (e.Location.X > 210 && e.Location.X < 280 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(3);
                 PaintGame(Game.GetAll());
+                label1.Text = Convert.ToString(Game.GetScore());
             }
             else if (e.Location.X > 280 && e.Location.X < 350 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(4);
                 PaintGame(Game.GetAll());
+                label1.Text = Convert.ToString(Game.GetScore());
             }
             else if (e.Location.X > 350 && e.Location.X < 420 && e.Location.Y < 400)
             {
                 Game.GunSetorGetFish(5);
                 PaintGame(Game.GetAll());
+                label1.Text = Convert.ToString(Game.GetScore());
             }
 
         } 
@@ -677,6 +684,16 @@ namespace AquariumGame.Views
                     }
                     break;
             }
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            Game.Save();
+        }
+
+        private void Download_Click(object sender, EventArgs e)
+        {
+            Game.Upload();
         }
     }
 }
