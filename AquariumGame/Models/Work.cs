@@ -34,7 +34,10 @@ namespace AquariumGame.Models
             Stacks.Add(FifthColumn);
             Stacks.Add(SixthColumn);
         }
-
+        public void SetList(List<List<Fish>> Stacks)
+            {
+            this.Stacks = Stacks;
+}
         public List<Fish> GetStack(int index)
         {
             return Stacks[index];

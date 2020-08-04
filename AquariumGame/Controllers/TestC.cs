@@ -14,7 +14,7 @@ namespace AquariumGame.Controllers
 {
     class TestC
     {
-        Work work;
+        public Work work;
         Gun gun;
         
         public void Start() // початок гри
@@ -43,12 +43,12 @@ namespace AquariumGame.Controllers
             int count=0;
             foreach (List<Fish> f in work.GetAll())
             {
-                if (f.Count==0)
+                if (f.Count<2)
                 {
                     count++;
                 }
             }
-            if (count > 4)
+            if (count > 5)
             {
                 work.AddFish();
                 work.AddFish();
@@ -216,7 +216,7 @@ namespace AquariumGame.Controllers
             using (FileStream fs = new FileStream("Save.txt", FileMode.OpenOrCreate))
             {
                 
-                 formatter.Serialize(fs, work);
+                 formatter.Serialize(fs, work.GetAll());
 
                 
             }
@@ -224,19 +224,18 @@ namespace AquariumGame.Controllers
         }
         public void Upload()
         {
-            if (File.Exists("Save.txt"))
-            {
+            
                 BinaryFormatter  formatter = new BinaryFormatter();
 
 
                 using (FileStream fs = new FileStream("Save.txt", FileMode.OpenOrCreate))
                 {
 
-                    Work List = (Work)formatter.Deserialize(fs);
+                    work.SetList((List<List<Fish>>)formatter.Deserialize(fs));
 
                 }
 
-            }
+            
             
         }
 
