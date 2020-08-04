@@ -693,24 +693,6 @@ namespace AquariumGame.Views
             }
         } //вспомогательный метод для отрисовки стека
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (Game.GameOver())
-            {
-                timer1.Stop();
-                MessageBox.Show("you lose");
-
-                Close();
-            }
-           
-            PaintGame(Game.GetAll());
-            
-             
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            Game.Time();
-        }
+       
     }
 }
