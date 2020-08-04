@@ -58,9 +58,9 @@
             // 
             this.Save.BackColor = System.Drawing.SystemColors.Highlight;
             this.Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Save.Location = new System.Drawing.Point(12, 555);
+            this.Save.Location = new System.Drawing.Point(12, 544);
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(166, 68);
+            this.Save.Size = new System.Drawing.Size(166, 79);
             this.Save.TabIndex = 1;
             this.Save.Text = "Сохранить прогресс";
             this.Save.UseVisualStyleBackColor = false;
@@ -70,9 +70,9 @@
             // 
             this.Download.BackColor = System.Drawing.SystemColors.Highlight;
             this.Download.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Download.Location = new System.Drawing.Point(184, 555);
+            this.Download.Location = new System.Drawing.Point(184, 544);
             this.Download.Name = "Download";
-            this.Download.Size = new System.Drawing.Size(163, 68);
+            this.Download.Size = new System.Drawing.Size(163, 79);
             this.Download.TabIndex = 2;
             this.Download.Text = "Загрузить прогресс";
             this.Download.UseVisualStyleBackColor = false;
