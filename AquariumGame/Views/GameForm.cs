@@ -115,7 +115,7 @@ namespace AquariumGame.Views
             PaintGame(Game.GetAll());
         }
 
-        private void PaintGame(List<Stack<Fish>> fishes) //метод рисует стек
+        private void PaintGame(List<List<Fish>> fishes) //метод рисует стек
         {
             count = new int[6];
             for (int i = 0; i < 6; i++)
