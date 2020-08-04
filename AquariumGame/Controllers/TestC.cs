@@ -16,13 +16,14 @@ namespace AquariumGame.Controllers
     {
         Work work;
         Gun gun;
-        BinaryFormatter formatter;
+        
         public void Start() // початок гри
         {
            work = new Work();
             work.AddFish();
             work.AddFish();
             gun = new Gun();
+            
         }
 
         public bool Perevirka(MediumFish a)
@@ -36,6 +37,7 @@ namespace AquariumGame.Controllers
 
 
         }
+
         public void Addmorefish()
         {
             int count=0;
@@ -51,6 +53,7 @@ namespace AquariumGame.Controllers
                 work.AddFish();
                 work.AddFish();
             }
+
         }
         public List<List<Fish>> GetAll()
         {
@@ -87,21 +90,40 @@ namespace AquariumGame.Controllers
             else if(gun.Content() != null)
             {
                 List<Fish> f = work.GetStack(ListID);
-                
-                if (f.Count==0)
+
+                if (f[f.Count - 1].GetType() == new DestroyerFish().GetType())
                 {
-                    
+                    if (ListID>1 && ListID<5)
+                    {
+                        List<Fish> f1 = work.GetStack(ListID - 1);
+                    }
+                    if (ListID > 1 && ListID < 5)
+                    {
+                        List<Fish> f1 = work.GetStack(ListID - 1);
+                    }
+                    //if ()
+                    //{
+                        
+                    //}
+                      f.RemoveAt(f.Count - 1);
+
+
+                }
+                else if (f.Count == 0)
+                {
+
                     f.Add(gun.Get());
                 }
-                else if (gun.Content()!=null && f[f.Count-1].GetType() == new BigFish().GetType() && gun.Content().GetType() == new MediumFish().GetType())// потрібен метод який повертає чи є рибка у gun і яка вона
+
+                else if (gun.Content() != null && f[f.Count - 1].GetType() == new BigFish().GetType() && gun.Content().GetType() == new MediumFish().GetType())// потрібен метод який повертає чи є рибка у gun і яка вона
                 {
                     BigFish b = (BigFish)f[f.Count - 1];
-                    
+
                     if (Perevirka((MediumFish)gun.Content()))
                     {
-                        f.RemoveAt(f.Count-1);// видаляю рибу
+                        f.RemoveAt(f.Count - 1);// видаляю рибу
                         gun.Get();
-                        gun.Score+=3;
+                        gun.Score += 3;
                     }
                     else if (b.IsSatisfied == 1)
                     {
@@ -144,13 +166,13 @@ namespace AquariumGame.Controllers
 
         public void Save()
         {
-             formatter = new BinaryFormatter();
+            BinaryFormatter formatter = new BinaryFormatter();
 
             
             using (FileStream fs = new FileStream("Save.txt", FileMode.OpenOrCreate))
             {
                 
-                formatter.Serialize(fs, work);
+                 formatter.Serialize(fs, work);
 
                 
             }
@@ -160,7 +182,7 @@ namespace AquariumGame.Controllers
         {
             if (File.Exists("Save.txt"))
             {
-                formatter = new BinaryFormatter();
+                BinaryFormatter  formatter = new BinaryFormatter();
 
 
                 using (FileStream fs = new FileStream("Save.txt", FileMode.OpenOrCreate))
