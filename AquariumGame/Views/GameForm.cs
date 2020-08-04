@@ -184,7 +184,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(5, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[0]++;
                         }
                         else
