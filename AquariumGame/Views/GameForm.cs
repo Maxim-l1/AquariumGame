@@ -136,10 +136,9 @@ namespace AquariumGame.Views
                     AddFish(fish.GetFishType(), i);
                 }
             }
-            //MessageBox.Show(pictureBoxes.Count.ToString());
         } 
 
-        private void AddFish(int size, int column)
+        private void AddFish(int size, int column) //вспомогательный метод для отрисовки стека
         {
             switch (column)
             {
@@ -156,7 +155,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(5, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[0]++;
                         }
                         else
@@ -169,7 +168,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(5, 5 + (count[0] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[0]++;
                         }
                     }
@@ -198,7 +197,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(5, 5 + (count[0] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[0]++;
                         }
                     }
@@ -214,7 +213,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(5, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[0]++;
                         }
                         else
@@ -227,7 +226,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(5, 5 + (count[0] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[0]++;
                         }
                     }
@@ -245,7 +244,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(75, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[1]++;
                         }
                         else
@@ -258,7 +257,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(75, 5 + (count[1] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[1]++;
                         }
                     }
@@ -274,7 +273,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(75, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[1]++;
                         }
                         else
@@ -287,7 +286,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(75, 5 + (count[1] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[1]++;
                         }
                     }
@@ -303,7 +302,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(75, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[1]++;
                         }
                         else
@@ -316,7 +315,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(75, 5 + (count[1] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[1]++;
                         }
                     }
@@ -334,7 +333,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(145, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[2]++;
                         }
                         else
@@ -347,7 +346,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(145, 5 + (count[2] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[2]++;
                         }
                     }
@@ -363,7 +362,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(145, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[2]++;
                         }
                         else
@@ -376,7 +375,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(145, 5 + (count[2] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[2]++;
                         }
                     }
@@ -392,7 +391,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(145, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[2]++;
                         }
                         else
@@ -405,7 +404,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(145, 5 + (count[2] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[2]++;
                         }
                     }
@@ -423,7 +422,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(215, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[3]++;
                         }
                         else
@@ -436,7 +435,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(215, 5 + (count[3] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[3]++;
                         }
                     }
@@ -452,7 +451,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(215, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[3]++;
                         }
                         else
@@ -465,7 +464,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(215, 5 + (count[3] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[3]++;
                         }
                     }
@@ -481,7 +480,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(215, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[3]++;
                         }
                         else
@@ -494,7 +493,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(215, 5 + (count[3] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[3]++;
                         }
                     }
@@ -512,7 +511,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(285, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[4]++;
                         }
                         else
@@ -525,7 +524,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(285, 5 + (count[4] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[4]++;
                         }
                     }
@@ -541,7 +540,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(285, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[4]++;
                         }
                         else
@@ -554,7 +553,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(285, 5 + (count[4] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[4]++;
                         }
                     }
@@ -570,7 +569,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(285, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[4]++;
                         }
                         else
@@ -583,7 +582,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(285, 5 + (count[4] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[4]++;
                         }
                     }
@@ -601,7 +600,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(355, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[5]++;
                         }
                         else
@@ -614,7 +613,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(355, 5 + (count[5] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[5]++;
                         }
                     }
@@ -630,7 +629,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(355, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[5]++;
                         }
                         else
@@ -643,7 +642,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(355, 5 + (count[5] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[5]++;
                         }
                     }
@@ -659,7 +658,7 @@ namespace AquariumGame.Views
                             New.Location = new Point(355, 5);
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[5]++;
                         }
                         else
@@ -672,12 +671,12 @@ namespace AquariumGame.Views
                             New.Location = new Point(355, 5 + (count[5] * 65));
                             New.BackColor = Color.Transparent;
                             Controls.Add(New);
-                            pictureBoxes.Add(new PictureBox());
+                            pictureBoxes.Add(New);
                             count[5]++;
                         }
                     }
                     break;
             }
-        } //вспомогательный метод для отрисовки стека
+        }
     }
 }
