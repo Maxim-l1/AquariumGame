@@ -874,6 +874,7 @@ namespace AquariumGame.Views
         {
             Game.Upload();
             MessageBox.Show("Вы успешно загрузили игру!");
+            PaintGame(Game.GetAll());
         }
 
         private void IsGameOver_Tick(object sender, EventArgs e)
