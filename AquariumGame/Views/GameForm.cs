@@ -30,6 +30,7 @@ namespace AquariumGame.Views
             InitializeComponent();
             pictureBox1.Cursor = Cursors.Hand;
             Game.Start();
+            PaintGame(Game.GetAll());
         }
 
         private void GameForm_Paint(object sender, PaintEventArgs e)
@@ -125,17 +126,6 @@ namespace AquariumGame.Views
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Game.Refresh();
-            count = new int[6];
-            for (int i = 0; i < 6; i++)
-            {
-                count[i] = 0;
-            }
-            foreach (var x in pictureBoxes)
-            {
-                x.Visible = false;
-                x.Dispose();
-            }
-            pictureBoxes.Clear();
             PaintGame(Game.GetAll());
         }
 
