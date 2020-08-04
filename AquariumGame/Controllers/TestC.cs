@@ -80,77 +80,79 @@ namespace AquariumGame.Controllers
             }
             return false;
         }
+        public void DestroyerFish(int ListID)
+        {
+            
+                List<Fish> f = work.GetStack(ListID);
+
+                List<Fish> f1 = new List<Fish>();
+                List<Fish> f2 = new List<Fish>();
+                if (ListID > 0 && ListID < 5)
+                {
+                    f1 = work.GetStack(ListID - 1);
+                }
+                if (ListID > 0 && ListID < 5)
+                {
+                    f2 = work.GetStack(ListID + 1);
+                }
+                int count = f.Count;
+                if (f1.Count != 0)
+                {
+                    if (f1.Count == f.Count )
+                    {
+                        
+                        f1.RemoveAt(count-1);
+
+                        f1.RemoveAt(count - 2);
+                    }
+                    else if (f1.Count == f.Count -1)
+                    {
+                       
+
+                        f1.RemoveAt(count - 2);
+                    }
+                   
+                }
+                if (f2.Count != 0)
+                {
+                    if (f2.Count == f.Count)
+                    {
+                     
+
+                        f2.RemoveAt(count-1);
+
+                        f2.RemoveAt(count -2);
+                    }
+                    else if (f2.Count == f.Count -1)
+                    {
+                       
+
+                        f2.RemoveAt(count - 2);
+                    }
+                 
+                }
+                f.RemoveAt(f.Count - 1);
+            if(f.Count!=0)
+            f.RemoveAt(f.Count - 1);
+           
+
+            
+            
+        }
         public void GunSetorGetFish(int ListID) 
         {
-            List<Fish> f = work.GetStack(ListID);
+            
             if (work.GetStack(ListID).Count !=0 && gun.Content() == null && work.GetStack(ListID)[work.GetStack(ListID).Count - 1].GetType() != new BigFish().GetType())
             {
-               
-                if (f[f.Count - 1].GetType() == new DestroyerFish().GetType())
-                {
-                    List<Fish> f1 = new List<Fish>();
-                    List<Fish> f2 = new List<Fish>();
-                    if (ListID > 1 && ListID < 5)
-                    {
-                        f1 = work.GetStack(ListID - 1);
-                    }
-                    if (ListID > 1 && ListID < 5)
-                    {
-                        f2 = work.GetStack(ListID + 1);
-                    }
-                    int count = f.Count - 1;
-                    if (f1.Count != 0)
-                    {
-                        if (f1.Count == f.Count + 1)
-                        {
-                            f1.RemoveAt(count + 1);
-
-                            f1.RemoveAt(count);
-
-                            f1.RemoveAt(count - 1);
-                        }
-                        else if (f1.Count == f.Count)
-                        {
-                            f1.RemoveAt(count);
-
-                            f1.RemoveAt(count - 1);
-                        }
-                        else if (f1.Count == f.Count - 1)
-                        {
-                            f1.RemoveAt(count - 1);
-                        }
-                    }
-                    if (f2.Count != 0)
-                    {
-                        if (f2.Count == f.Count + 1)
-                        {
-                            f2.RemoveAt(count + 1);
-
-                            f2.RemoveAt(count);
-
-                            f2.RemoveAt(count - 1);
-                        }
-                        else if (f2.Count == f.Count)
-                        {
-                            f2.RemoveAt(count);
-
-                            f2.RemoveAt(count - 1);
-                        }
-                        else if (f2.Count == f.Count - 1)
-                        {
-                            f2.RemoveAt(count - 1);
-                        }
-                    }
-                    f.RemoveAt(f.Count - 1);
-                    f.RemoveAt(f.Count - 2);
-
+               if(work.GetStack(ListID)[work.GetStack(ListID).Count - 1].GetType() == new DestroyerFish().GetType())
+               { DestroyerFish(ListID);
                 }
-                else
+               else                
                 gun.Set(work.GetStack(ListID));
             }
             else if(gun.Content() != null)
             {
-                
+                List<Fish> f = work.GetStack(ListID);
 
                
                 if (f.Count == 0)
