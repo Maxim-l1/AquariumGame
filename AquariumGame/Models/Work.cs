@@ -47,49 +47,60 @@ namespace AquariumGame.Models
 
         public void AddFish() // Додає випадкову рибку в кожну колонку
         {
-            var x = rand.Next(3);
+            var x = rand.Next(4);
             if (x == 0)
                 FirstColumn.Add(new SmallFish());
             else if (x == 1)
                 FirstColumn.Add(new MediumFish());
+            else if (x == 2)
+                FirstColumn.Add(new DestroyerFish());
             else
                 FirstColumn.Add(new BigFish());
-            x = rand.Next(3);
+            x = rand.Next(4);
             if (x == 0)
                 SecondColumn.Add(new SmallFish());
             else if (x == 1)
                 SecondColumn.Add(new MediumFish());
+            else if (x == 2)
+                SecondColumn.Add(new DestroyerFish());
             else
                 SecondColumn.Add(new BigFish());
-            x = rand.Next(3);
+            x = rand.Next(4);
             if (x == 0)
                 ThirdColumn.Add(new SmallFish());
             else if (x == 1)
                 ThirdColumn.Add(new MediumFish());
+            else if (x == 2)
+                ThirdColumn.Add(new DestroyerFish());
             else
                 ThirdColumn.Add(new BigFish());
-            x = rand.Next(3);
+            x = rand.Next(4);
             if (x == 0)
                 FourthColumn.Add(new SmallFish());
             else if (x == 1)
                 FourthColumn.Add(new MediumFish());
+            else if (x == 2)
+                FourthColumn.Add(new DestroyerFish());
             else
                 FourthColumn.Add(new BigFish());
-            x = rand.Next(3);
+            x = rand.Next(4);
             if (x == 0)
                 FifthColumn.Add(new SmallFish());
             else if (x == 1)
                 FifthColumn.Add(new MediumFish());
+            else if (x == 2)
+                FifthColumn.Add(new DestroyerFish());
             else
                 FifthColumn.Add(new BigFish());
-            x = rand.Next(3);
+            x = rand.Next(4);
             if (x == 0)
                 SixthColumn.Add(new SmallFish());
             else if (x == 1)
                 SixthColumn.Add(new MediumFish());
+            else if (x == 2)
+                SixthColumn.Add(new DestroyerFish());
             else
                 SixthColumn.Add(new BigFish());
-            x = rand.Next(3);
 
         }
         public void AddFish(List<Fish> s) // Додає випадкву рибку в конкретну колонку
@@ -99,6 +110,8 @@ namespace AquariumGame.Models
                 s.Add(new SmallFish());
             else if(x == 1)
                 s.Add(new MediumFish());
+            else if (x == 2)
+                s.Add(new DestroyerFish());
             else
                 s.Add(new BigFish());
 
@@ -111,6 +124,8 @@ namespace AquariumGame.Models
                 return new SmallFish();
             else if (x == 1)
                 return new MediumFish();
+            else if (x == 2)
+                return new DestroyerFish();
             else
                 return new BigFish();
         }
