@@ -45,16 +45,8 @@ namespace AquariumGame.Controllers
           
             foreach (List<Fish> f in work.GetAll())
             {
-               
-                //List<Fish> list = f.ToList<Fish>();
-                //list.Add(work.GetRandomFish());
-                //f.Clear();
-                //foreach (Fish fish in list)
-                //{
-                //    f.Push(fish);
+                f.Insert(0,work.GetRandomFish());
 
-                //}
-                f.Add(work.GetRandomFish());
             }
             
         }
