@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AquariumGame.Models
 {
+    [Serializable]
     class MediumFish : Fish // Середня рибка. Може їсти маленьких рибок.
     {
         public int IsSatisfied { private set; get; } // Кількість зїдених рибок

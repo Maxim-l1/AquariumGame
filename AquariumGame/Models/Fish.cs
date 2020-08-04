@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AquariumGame.Models
 {
+    [Serializable]
     class Fish // Клас створений для того, щоб різних рибок можна було класти в колекцію одного типу.
     {
         public int GetFishType()
