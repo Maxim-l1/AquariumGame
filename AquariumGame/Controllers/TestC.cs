@@ -71,14 +71,14 @@ namespace AquariumGame.Controllers
         }
         public void GunSetorGetFish(int ListID) 
         {
-            if (work.GetList(ListID).Count !=0 && gun.Content() == null && work.GetList(ListID).Peek().GetType() != new BigFish().GetType())
+            if (work.GetStack(ListID).Count !=0 && gun.Content() == null && work.GetStack(ListID)[work.GetStack(ListID).Count - 1].GetType() != new BigFish().GetType())
             {
                
-                gun.Set(work.GetList(ListID));
+                gun.Set(work.GetStack(ListID));
             }
             else if(gun.Content() != null)
             {
-                List<Fish> f = work.GetList(ListID);
+                List<Fish> f = work.GetStack(ListID);
                 
                 if (f.Count==0)
                 {
