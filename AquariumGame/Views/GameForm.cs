@@ -33,7 +33,7 @@ namespace AquariumGame.Views
             PaintGame(Game.GetAll());
         }
 
-        private void GameForm_Paint(object sender, PaintEventArgs e)
+        private void GameForm_Paint(object sender, PaintEventArgs e)// метод для отрисовки линий
         {
             Pen p = new Pen(Color.White, 3);// цвет линии и ширина
             Point p1 = new Point(70, 5);// первая точка
@@ -60,23 +60,9 @@ namespace AquariumGame.Views
             p2 = new Point(350, 400);// вторая точка
             e.Graphics.DrawLine(p, p1, p2);
             e.Graphics.DrawImage(kanat, 0, 370, 422, 50);
+        } 
 
-            //e.Graphics.DrawImage(small, 10, 20, 40, 40);
-            //e.Graphics.DrawImage(medium, 80, 15, 50, 50);
-            //e.Graphics.DrawImage(big, 145, 5, 65, 65);
-            //e.Graphics.DrawImage(small, 220, 20, 40, 40);
-            //e.Graphics.DrawImage(medium, 290, 15, 50, 50);
-            //e.Graphics.DrawImage(big, 355, 5, 65, 65);
-            ////----------------------------------------------
-            //e.Graphics.DrawImage(small, 10, 85, 40, 40);
-            //e.Graphics.DrawImage(medium, 80, 80, 50, 50);
-            //e.Graphics.DrawImage(big, 145, 70, 65, 65);
-            //e.Graphics.DrawImage(small, 220, 85, 40, 40);
-            //e.Graphics.DrawImage(medium, 290, 80, 50, 50);
-            //e.Graphics.DrawImage(big, 355, 70, 65, 65);
-        } //метод для отрисовки линий
-
-        private void GameForm_MouseClick(object sender, MouseEventArgs e)
+        private void GameForm_MouseClick(object sender, MouseEventArgs e) //метод определяет куда произошло нажатие
         {
             if (e.Location.X > 0 && e.Location.X < 70 && e.Location.Y < 400)
             {
@@ -109,7 +95,7 @@ namespace AquariumGame.Views
                 PaintGame(Game.GetAll());
             }
 
-        } //метод определяет куда произошло нажатие
+        } 
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -129,7 +115,7 @@ namespace AquariumGame.Views
             PaintGame(Game.GetAll());
         }
 
-        private void PaintGame(List<Stack<Fish>> fishes)
+        private void PaintGame(List<Stack<Fish>> fishes) //метод рисует стек
         {
             count = new int[6];
             for (int i = 0; i < 6; i++)
@@ -150,8 +136,8 @@ namespace AquariumGame.Views
                     AddFish(fish.GetFishType(), i);
                 }
             }
-            MessageBox.Show(pictureBoxes.Count.ToString());
-        } //метод рисует стек
+            //MessageBox.Show(pictureBoxes.Count.ToString());
+        } 
 
         private void AddFish(int size, int column)
         {
