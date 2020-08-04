@@ -54,7 +54,7 @@ namespace AquariumGame.Controllers
                 //    f.Push(fish);
 
                 //}
-                f.Push(work.GetRandomFish());
+                f.Add(work.GetRandomFish());
             }
             
         }
@@ -79,24 +79,25 @@ namespace AquariumGame.Controllers
             else if(gun.Content() != null)
             {
                 List<Fish> f = work.GetList(ListID);
-
+                
                 if (f.Count==0)
                 {
-                    f.Push(gun.Get());
+                    
+                    f.Add(gun.Get());
                 }
-                else if (gun.Content()!=null && f.Peek().GetType() == new BigFish().GetType() && gun.Content().GetType() == new MediumFish().GetType())// потрібен метод який повертає чи є рибка у gun і яка вона
+                else if (gun.Content()!=null && f[f.Count-1].GetType() == new BigFish().GetType() && gun.Content().GetType() == new MediumFish().GetType())// потрібен метод який повертає чи є рибка у gun і яка вона
                 {
-                    BigFish b = (BigFish)f.Peek();
+                    BigFish b = (BigFish)f[f.Count - 1];
                     
                     if (Perevirka((MediumFish)gun.Content()))
                     {
-                        f.Pop();// видаляю рибу
+                        f.RemoveAt(f.Count-1);// видаляю рибу
                         gun.Get();
                         gun.Score+=3;
                     }
                     else if (b.IsSatisfied == 1)
                     {
-                        f.Pop();// видаляю рибу
+                        f.RemoveAt(f.Count - 1);// видаляю рибу
                         gun.Get();
                         gun.Score += 3;
                     }
@@ -106,13 +107,13 @@ namespace AquariumGame.Controllers
                     }
 
                 }
-                else if (f.Peek().GetType() == new MediumFish().GetType() && gun.Content().GetType() == new SmallFish().GetType())
+                else if (f[f.Count - 1].GetType() == new MediumFish().GetType() && gun.Content().GetType() == new SmallFish().GetType())
                 {
-                    MediumFish b = (MediumFish)f.Peek();
+                    MediumFish b = (MediumFish)f[f.Count - 1];
 
                     if (b.IsSatisfied == 1)
                     {
-                        f.Pop();// видаляю рибу
+                        f.RemoveAt(f.Count - 1); // видаляю рибу
                         gun.Get();
                         gun.Score += 3;
                     }
