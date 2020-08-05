@@ -36,14 +36,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.IsGameOver = new System.Windows.Forms.Timer(this.components);
             this.AddFishTimer = new System.Windows.Forms.Timer(this.components);
+            this.gun = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gun)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(464, 544);
+            this.pictureBox1.Location = new System.Drawing.Point(464, 585);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(60, 57);
@@ -58,7 +60,7 @@
             // 
             this.Save.BackColor = System.Drawing.SystemColors.Highlight;
             this.Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Save.Location = new System.Drawing.Point(12, 544);
+            this.Save.Location = new System.Drawing.Point(12, 585);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(166, 79);
             this.Save.TabIndex = 1;
@@ -70,7 +72,7 @@
             // 
             this.Download.BackColor = System.Drawing.SystemColors.Highlight;
             this.Download.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Download.Location = new System.Drawing.Point(184, 544);
+            this.Download.Location = new System.Drawing.Point(184, 585);
             this.Download.Name = "Download";
             this.Download.Size = new System.Drawing.Size(163, 79);
             this.Download.TabIndex = 2;
@@ -83,7 +85,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(353, 570);
+            this.label1.Location = new System.Drawing.Point(353, 611);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(92, 31);
             this.label1.TabIndex = 3;
@@ -99,12 +101,22 @@
             this.AddFishTimer.Interval = 500;
             this.AddFishTimer.Tick += new System.EventHandler(this.AddFishTimer_Tick);
             // 
+            // gun
+            // 
+            this.gun.BackColor = System.Drawing.Color.Transparent;
+            this.gun.Location = new System.Drawing.Point(255, 512);
+            this.gun.Name = "gun";
+            this.gun.Size = new System.Drawing.Size(65, 65);
+            this.gun.TabIndex = 4;
+            this.gun.TabStop = false;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::AquariumGame.Properties.Resources.depositphotos_99410564_stock_illustration_подводный_мир_синего_моря_морская;
-            this.ClientSize = new System.Drawing.Size(563, 635);
+            this.ClientSize = new System.Drawing.Size(563, 676);
+            this.Controls.Add(this.gun);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Download);
             this.Controls.Add(this.Save);
@@ -116,6 +128,7 @@
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.GameForm_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameForm_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gun)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +142,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer IsGameOver;
         private System.Windows.Forms.Timer AddFishTimer;
+        private System.Windows.Forms.PictureBox gun;
     }
 }
