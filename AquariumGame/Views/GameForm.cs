@@ -908,6 +908,11 @@ namespace AquariumGame.Views
 
         private void AddGun(Fish fish)
         {
+            if (fish == null)
+            {
+                gun.Visible = false;
+                return;
+            }
             gun.Visible = true;
             if (fish.GetFishType() == 1)
             {
