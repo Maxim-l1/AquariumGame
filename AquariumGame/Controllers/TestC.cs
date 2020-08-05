@@ -80,6 +80,13 @@ namespace AquariumGame.Controllers
             }
             return false;
         }
+
+        public Fish GetFishinGun()
+        {
+
+
+            return gun.shell;
+        }
         public void DestroyerFish(int ListID)
         {
             
@@ -87,18 +94,29 @@ namespace AquariumGame.Controllers
 
                 List<Fish> f1 = new List<Fish>();
                 List<Fish> f2 = new List<Fish>();
-                if (ListID > 0 && ListID < 5)
+                if (ListID > 0 && ListID < 6)
                 {
                     f1 = work.GetStack(ListID - 1);
                 }
-                if (ListID > 0 && ListID < 5)
+                if (ListID >= 0 && ListID < 5)
                 {
                     f2 = work.GetStack(ListID + 1);
                 }
                 int count = f.Count;
                 if (f1.Count != 0)
                 {
-                    if (f1.Count == f.Count )
+                if(f1.Count == f.Count+1)
+                {
+                    f1.RemoveAt(count);
+
+                    f1.RemoveAt(count - 1);
+
+                    if (f1.Count >2)
+                    {
+                        f1.RemoveAt(count - 2);
+                    }
+                }
+                  else  if (f1.Count == f.Count )
                     {
                         
                         f1.RemoveAt(count-1);
@@ -115,7 +133,17 @@ namespace AquariumGame.Controllers
                 }
                 if (f2.Count != 0)
                 {
-                    if (f2.Count == f.Count)
+                if (f2.Count == f.Count + 1)
+                {
+                    f2.RemoveAt(count);
+
+                    f2.RemoveAt(count - 1);
+                    if (f2.Count>2)
+                    {
+                        f2.RemoveAt(count - 2);
+                    }
+                }
+               else  if (f2.Count == f.Count)
                     {
                      
 
