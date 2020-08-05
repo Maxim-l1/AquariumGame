@@ -85,7 +85,7 @@ namespace AquariumGame.Controllers
         {
 
 
-            return gun.shell;
+            return gun.Content();
         }
         public void DestroyerFish(int ListID)
         {
