@@ -120,8 +120,10 @@ namespace AquariumGame.Controllers
                     {
                         
                         f1.RemoveAt(count-1);
-
+                    if (f1.Count>1)
+                    {
                         f1.RemoveAt(count - 2);
+                    }
                     }
                     else if (f1.Count == f.Count -1)
                     {
@@ -148,8 +150,10 @@ namespace AquariumGame.Controllers
                      
 
                         f2.RemoveAt(count-1);
-
-                        f2.RemoveAt(count -2);
+                    if (f2.Count>1)
+                    {
+                        f2.RemoveAt(count - 2);
+                    }
                     }
                     else if (f2.Count == f.Count -1)
                     {
