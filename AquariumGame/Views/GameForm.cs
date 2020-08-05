@@ -25,6 +25,7 @@ namespace AquariumGame.Views
         Image danger = Properties.Resources.danger;
         List<PictureBox> pictureBoxes = new List<PictureBox>();
         int[] count = new int[6];
+        int getColumn = 0;
 
         public GameForm()
         {
@@ -70,44 +71,50 @@ namespace AquariumGame.Views
         {
             if (e.Location.X > 0 && e.Location.X < 70 && e.Location.Y < 400)
             {
+                getColumn = 0;
                 Game.GunSetorGetFish(0);
                 PaintGame(Game.GetAll());
-                AddGun(Game.GetFishinGun());
+                AddGun(Game.GetFishinGun(), 0);
                 label1.Text = Convert.ToString(Game.GetScore());
             }
             else if (e.Location.X > 70 && e.Location.X < 140 && e.Location.Y < 400)
             {
+                getColumn = 1;
                 Game.GunSetorGetFish(1);
                 PaintGame(Game.GetAll());
-                AddGun(Game.GetFishinGun());
+                AddGun(Game.GetFishinGun(), 1);
                 label1.Text = Convert.ToString(Game.GetScore());
             }
             else if (e.Location.X > 140 && e.Location.X < 210 && e.Location.Y < 400)
             {
+                getColumn = 2;
                 Game.GunSetorGetFish(2);
                 PaintGame(Game.GetAll());
-                AddGun(Game.GetFishinGun());
+                AddGun(Game.GetFishinGun(), 2);
                 label1.Text = Convert.ToString(Game.GetScore());
             }
             else if (e.Location.X > 210 && e.Location.X < 280 && e.Location.Y < 400)
             {
+                getColumn = 3;
                 Game.GunSetorGetFish(3);
                 PaintGame(Game.GetAll());
-                AddGun(Game.GetFishinGun());
+                AddGun(Game.GetFishinGun(), 3);
                 label1.Text = Convert.ToString(Game.GetScore());
             }
             else if (e.Location.X > 280 && e.Location.X < 350 && e.Location.Y < 400)
             {
+                getColumn = 4;
                 Game.GunSetorGetFish(4);
                 PaintGame(Game.GetAll());
-                AddGun(Game.GetFishinGun());
+                AddGun(Game.GetFishinGun(), 4);
                 label1.Text = Convert.ToString(Game.GetScore());
             }
             else if (e.Location.X > 350 && e.Location.X < 420 && e.Location.Y < 400)
             {
+                getColumn = 5;
                 Game.GunSetorGetFish(5);
                 PaintGame(Game.GetAll());
-                AddGun(Game.GetFishinGun());
+                AddGun(Game.GetFishinGun(), 5);
                 label1.Text = Convert.ToString(Game.GetScore());
             }
 
@@ -129,7 +136,7 @@ namespace AquariumGame.Views
         {
             Game.Refresh();
             PaintGame(Game.GetAll());
-            AddGun(Game.GetFishinGun());
+            AddGun(Game.GetFishinGun(), getColumn);
             label1.Text = Convert.ToString(Game.GetScore());
         }
 
@@ -882,21 +889,21 @@ namespace AquariumGame.Views
             Game.Upload();
             MessageBox.Show("Вы успешно загрузили игру!");
             PaintGame(Game.GetAll());
-            AddGun(Game.GetFishinGun());
+            AddGun(Game.GetFishinGun(), getColumn);
         }
 
         private void IsGameOver_Tick(object sender, EventArgs e)
         {
             Game.Time();
             PaintGame(Game.GetAll());
-            AddGun(Game.GetFishinGun());
+            AddGun(Game.GetFishinGun(), getColumn);
             label1.Text = Convert.ToString(Game.GetScore());
             if (Game.GameOver() == true)
             {
                 MessageBox.Show("Вы проиграли");
                 Game.Refresh();
                 PaintGame(Game.GetAll());
-                AddGun(Game.GetFishinGun());
+                AddGun(Game.GetFishinGun(), getColumn);
                 label1.Text = Convert.ToString(Game.GetScore());
             }
         }
@@ -906,7 +913,7 @@ namespace AquariumGame.Views
             Game.Addmorefish();
         }
 
-        private void AddGun(Fish fish)
+        private void AddGun(Fish fish, int column)
         {
             if (fish == null)
             {
@@ -917,14 +924,26 @@ namespace AquariumGame.Views
             if (fish.GetFishType() == 1)
             {
                 gun.Image = small;
+                if (column == 0)
+                    gun.Location = new Point(5, 400);
+                else
+                    gun.Location = new Point(5 + (5 + column * 70), 400);
             }
             else if (fish.GetFishType() == 2)
             {
                 gun.Image = medium;
+                if (column == 0)
+                    gun.Location = new Point(5, 400);
+                else
+                    gun.Location = new Point(5 + (5 + column * 70), 400);
             }
             else if (fish.GetFishType() == 3)
             {
                 gun.Image = big;
+                if (column == 0)
+                    gun.Location = new Point(5, 400);
+                else
+                    gun.Location = new Point(5 + (5 + column * 70), 400);
             }
             else
             {
