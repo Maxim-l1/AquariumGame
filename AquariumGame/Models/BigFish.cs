@@ -8,8 +8,7 @@ namespace AquariumGame.Models
 {
     [Serializable]
     class BigFish : Fish
-    {
-        public int IsSatisfied { private set; get; } // Кількість зїдених рибок.
+    { // Кількість зїдених рибок.
 
         public BigFish()
         {

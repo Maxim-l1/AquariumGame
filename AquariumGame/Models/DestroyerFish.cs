@@ -9,6 +9,5 @@ namespace AquariumGame.Models
     [Serializable]
     class DestroyerFish : Fish
     {
-        public int IsSatisfied { private set; get; }
     }
 }
