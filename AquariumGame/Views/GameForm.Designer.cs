@@ -94,7 +94,6 @@
             // 
             // IsGameOver
             // 
-            this.IsGameOver.Interval = 500;
             this.IsGameOver.Tick += new System.EventHandler(this.IsGameOver_Tick);
             // 
             // AddFishTimer
