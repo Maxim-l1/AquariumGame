@@ -52,7 +52,7 @@ namespace AquariumGame.Views
             label1.Text = Convert.ToString("Счёт: " + 0);
             IsGameOver.Start();
             AddFishTimer.Start();
-
+            AddTimer.Start();
         }
 
         private void GameForm_Paint(object sender, PaintEventArgs e)// метод для отрисовки линий
@@ -199,10 +199,6 @@ namespace AquariumGame.Views
 
         private void IsGameOver_Tick(object sender, EventArgs e)
         {
-            Game.Time();
-            PaintGame(Game.GetAll());
-            AddGun(Game.GetFishinGun(), getColumn);
-            label1.Text = Convert.ToString("Счёт: " + Game.GetScore());
             if (Game.GameOver() == true)
             {
                 MessageBox.Show("Вы проиграли");
@@ -245,6 +241,7 @@ namespace AquariumGame.Views
         private void AddFishTimer_Tick(object sender, EventArgs e)
         {
             Game.Addmorefish();
+            PaintGame(Game.GetAll());
         }
 
         private void AddGun(Fish fish, int column)
@@ -260,6 +257,14 @@ namespace AquariumGame.Views
                 gun.Location = new Point(5, 480);
             else
                 gun.Location = new Point(5 + (5 + column * 70), 480);
+        }
+
+        private void AddTimer_Tick(object sender, EventArgs e)
+        {
+            Game.Time();
+            PaintGame(Game.GetAll());
+            AddGun(Game.GetFishinGun(), getColumn);
+            label1.Text = Convert.ToString("Счёт: " + Game.GetScore());
         }
     }
 }
