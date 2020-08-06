@@ -37,7 +37,14 @@ namespace AquariumGame.Controllers
 
 
         }
+        public bool Issatis(Fish a)
+        {
 
+            if (a.IsSatisfied > 0)
+                return true;
+
+            return false;
+        } 
         public void Addmorefish()
         {
             int count=0;

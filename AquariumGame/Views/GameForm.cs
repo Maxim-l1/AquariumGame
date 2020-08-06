@@ -12,6 +12,7 @@ using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using AquariumGame.Controllers;
 using AquariumGame.Models;
+using System.Threading;
 
 namespace AquariumGame.Views
 {
@@ -21,10 +22,13 @@ namespace AquariumGame.Views
         Image small = Properties.Resources.small;
         Image medium = Properties.Resources.medium;
         Image big = Properties.Resources.big;
+        Image medium_r = Properties.Resources.medium_r;
+        Image big_r = Properties.Resources.big_r;
         Image kanat = Properties.Resources.Kanat;
         Image refresh = Properties.Resources.refresh;
         Image danger = Properties.Resources.danger;
         Image[] fishesRes = new Image[4];
+        Image[] fishesRes_r = new Image[3];
 
         List<PictureBox> pictureBoxes = new List<PictureBox>();
         PictureBox[,] fishesTable = new PictureBox[6, 6];
@@ -38,6 +42,9 @@ namespace AquariumGame.Views
             fishesRes[1] = medium;
             fishesRes[2] = big;
             fishesRes[3] = danger;
+            fishesRes_r[0] = small;
+            fishesRes_r[1] = medium_r;
+            fishesRes_r[2] = big_r;
             CreateTable();
             pictureBox1.Cursor = Cursors.Hand;
             Game.Start();
@@ -161,7 +168,15 @@ namespace AquariumGame.Views
             {
                 foreach (var fish in fishes[i])
                 {
-                    fishesTable[i, count[i]].Image = fishesRes[fish.GetFishType() - 1];
+                    if (fish.IsSatisfied == 0)
+                    {
+                        fishesTable[i, count[i]].Image = fishesRes[fish.GetFishType() - 1];
+                    }
+                    else
+                    {
+                        fishesTable[i, count[i]].Image = fishesRes_r[fish.GetFishType() - 1];
+                    }
+                    //Thread.Sleep(50);
                     fishesTable[i, count[i]].Visible = true;
                     count[i]++;
                 }
