@@ -10,7 +10,6 @@ namespace AquariumGame.Models
 
     class SmallFish : Fish // Маленька рибка. Нічого не їсть.
     {
-        public int IsSatisfied { private set; get; }
         public SmallFish()
         {
             IsSatisfied = 0;
