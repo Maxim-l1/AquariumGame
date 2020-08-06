@@ -175,7 +175,6 @@ namespace AquariumGame.Views
                     else
                     {
                         fishesTable[i, count[i]].Image = fishesRes_r[fish.GetFishType() - 1];
-                        MessageBox.Show(fish.IsSatisfied.ToString());
                     }
                     fishesTable[i, count[i]].Visible = true;
                     count[i]++;
