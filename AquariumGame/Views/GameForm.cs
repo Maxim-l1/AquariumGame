@@ -34,6 +34,7 @@ namespace AquariumGame.Views
         PictureBox[,] fishesTable = new PictureBox[6, 6];
         int[] count = new int[6];
         int getColumn = 0;
+        private bool stop;
 
         public GameForm()
         {
@@ -53,6 +54,7 @@ namespace AquariumGame.Views
             IsGameOver.Start();
             AddFishTimer.Start();
             AddTimer.Start();
+            stop = false;
         }
 
         private void GameForm_Paint(object sender, PaintEventArgs e)// метод для отрисовки линий
@@ -151,6 +153,14 @@ namespace AquariumGame.Views
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            if (stop == true)
+            {
+                this.MouseClick += GameForm_MouseClick;
+                IsGameOver.Start();
+                AddFishTimer.Start();
+                AddTimer.Start();
+                stop = false;
+            }
             Game.Refresh();
             PaintGame(Game.GetAll());
             AddGun(Game.GetFishinGun(), getColumn);
@@ -170,13 +180,16 @@ namespace AquariumGame.Views
                 {
                     if (fish.IsSatisfied == 0)
                     {
-                        fishesTable[i, count[i]].Image = fishesRes[fish.GetFishType() - 1];
+                        if (fishes[i].Count <= 6)
+                            fishesTable[i, count[i]].Image = fishesRes[fish.GetFishType() - 1];
                     }
                     else
                     {
-                        fishesTable[i, count[i]].Image = fishesRes_r[fish.GetFishType() - 1];
+                        if (fishes[i].Count <= 6)
+                            fishesTable[i, count[i]].Image = fishesRes_r[fish.GetFishType() - 1];
                     }
-                    fishesTable[i, count[i]].Visible = true;
+                    if (fishes[i].Count <= 6)
+                        fishesTable[i, count[i]].Visible = true;
                     count[i]++;
                 }
             }
@@ -201,11 +214,28 @@ namespace AquariumGame.Views
         {
             if (Game.GameOver() == true)
             {
-                MessageBox.Show("Вы проиграли");
-                Game.Refresh();
-                PaintGame(Game.GetAll());
-                AddGun(Game.GetFishinGun(), getColumn);
-                label1.Text = Convert.ToString("Счёт: " + Game.GetScore());
+                IsGameOver.Stop();
+                const string message = "Вы проиграли. Хотите начать заново?";
+                const string caption = "Сообщение";
+                var result = MessageBox.Show(message, caption,
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    Game.Refresh();
+                    PaintGame(Game.GetAll());
+                    AddGun(Game.GetFishinGun(), getColumn);
+                    label1.Text = Convert.ToString("Счёт: " + Game.GetScore());
+                    IsGameOver.Start();
+                }
+                else
+                {
+                    this.MouseClick -= GameForm_MouseClick;
+                    IsGameOver.Stop();
+                    AddFishTimer.Stop();
+                    AddTimer.Stop();
+                    stop = true;
+                }
             }
         }
 
