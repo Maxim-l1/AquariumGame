@@ -37,6 +37,7 @@
             this.IsGameOver = new System.Windows.Forms.Timer(this.components);
             this.AddFishTimer = new System.Windows.Forms.Timer(this.components);
             this.gun = new System.Windows.Forms.PictureBox();
+            this.AddTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gun)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +94,7 @@
             // 
             // IsGameOver
             // 
-            this.IsGameOver.Interval = 30000;
+            this.IsGameOver.Interval = 500;
             this.IsGameOver.Tick += new System.EventHandler(this.IsGameOver_Tick);
             // 
             // AddFishTimer
@@ -109,6 +110,11 @@
             this.gun.Size = new System.Drawing.Size(65, 65);
             this.gun.TabIndex = 4;
             this.gun.TabStop = false;
+            // 
+            // AddTimer
+            // 
+            this.AddTimer.Interval = 30000;
+            this.AddTimer.Tick += new System.EventHandler(this.AddTimer_Tick);
             // 
             // GameForm
             // 
@@ -143,5 +149,6 @@
         private System.Windows.Forms.Timer IsGameOver;
         private System.Windows.Forms.Timer AddFishTimer;
         private System.Windows.Forms.PictureBox gun;
+        private System.Windows.Forms.Timer AddTimer;
     }
 }
