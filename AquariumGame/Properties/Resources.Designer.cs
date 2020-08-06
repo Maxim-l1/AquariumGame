@@ -83,6 +83,16 @@ namespace AquariumGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap big_r {
+            get {
+                object obj = ResourceManager.GetObject("big_r", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap danger {
             get {
                 object obj = ResourceManager.GetObject("danger", resourceCulture);
@@ -106,6 +116,16 @@ namespace AquariumGame.Properties {
         internal static System.Drawing.Bitmap medium {
             get {
                 object obj = ResourceManager.GetObject("medium", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap medium_r {
+            get {
+                object obj = ResourceManager.GetObject("medium_r", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
