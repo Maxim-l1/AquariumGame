@@ -63,6 +63,16 @@ namespace AquariumGame.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap back1 {
+            get {
+                object obj = ResourceManager.GetObject("back1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap big {
             get {
                 object obj = ResourceManager.GetObject("big", resourceCulture);
@@ -76,16 +86,6 @@ namespace AquariumGame.Properties {
         internal static System.Drawing.Bitmap danger {
             get {
                 object obj = ResourceManager.GetObject("danger", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap depositphotos_99410564_stock_illustration_подводный_мир_синего_моря_морская {
-            get {
-                object obj = ResourceManager.GetObject("depositphotos_99410564-stock-illustration-подводный-мир-синего-моря-морская", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
