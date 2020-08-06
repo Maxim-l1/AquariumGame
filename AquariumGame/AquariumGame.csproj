@@ -136,12 +136,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\depositphotos_99410564-stock-illustration-подводный-мир-синего-моря-морская.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\depositphotos_10791764-stock-photo-rope-1-removebg-preview.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\refresh.png" />
   </ItemGroup>
   <ItemGroup>
@@ -161,6 +155,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\danger.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_10791764-stock-photo-rope-1-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depositphotos_99410564-stock-illustration-подводный-мир-синего-моря-морская.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
