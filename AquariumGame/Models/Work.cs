@@ -55,7 +55,7 @@ namespace AquariumGame.Models
                 FirstColumn.Add(new SmallFish());
             else if (x >= 40 && x < 70)
                 FirstColumn.Add(new MediumFish());
-            else if (x >= 97 && x <= 100)
+            else if (x >= 99 && x <= 100)
                 FirstColumn.Add(new DestroyerFish());
             else
                 FirstColumn.Add(new BigFish());
@@ -64,7 +64,7 @@ namespace AquariumGame.Models
                 SecondColumn.Add(new SmallFish());
             else if (x >= 40 && x < 70)
                 SecondColumn.Add(new MediumFish());
-            else if (x >= 97 && x <= 100)
+            else if (x >= 99 && x <= 100)
                 SecondColumn.Add(new DestroyerFish());
             else
                 SecondColumn.Add(new BigFish());
@@ -73,7 +73,7 @@ namespace AquariumGame.Models
                 ThirdColumn.Add(new SmallFish());
             else if (x >= 40 && x < 70)
                 ThirdColumn.Add(new MediumFish());
-            else if (x >= 97 && x <= 100)
+            else if (x >= 99 && x <= 100)
                 ThirdColumn.Add(new DestroyerFish());
             else
                 ThirdColumn.Add(new BigFish());
@@ -82,7 +82,7 @@ namespace AquariumGame.Models
                 FourthColumn.Add(new SmallFish());
             else if (x >= 40 && x < 70)
                 FourthColumn.Add(new MediumFish());
-            else if (x >= 97 && x <= 100)
+            else if (x >= 99 && x <= 100)
                 FourthColumn.Add(new DestroyerFish());
             else
                 FourthColumn.Add(new BigFish());
@@ -91,7 +91,7 @@ namespace AquariumGame.Models
                 FifthColumn.Add(new SmallFish());
             else if (x >= 40 && x < 70)
                 FifthColumn.Add(new MediumFish());
-            else if (x >= 97 && x <= 100)
+            else if (x >= 99 && x <= 100)
                 FifthColumn.Add(new DestroyerFish());
             else
                 FifthColumn.Add(new BigFish());
@@ -100,7 +100,7 @@ namespace AquariumGame.Models
                 SixthColumn.Add(new SmallFish());
             else if (x >= 40 && x < 70)
                 SixthColumn.Add(new MediumFish());
-            else if (x >= 97 && x <= 100)
+            else if (x >= 99 && x <= 100)
                 SixthColumn.Add(new DestroyerFish());
             else
                 SixthColumn.Add(new BigFish());
