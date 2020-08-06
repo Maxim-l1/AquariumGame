@@ -53,7 +53,7 @@ namespace AquariumGame.Models
             var x = rand.Next(100);
             if (0 <= x && x < 40)
                 FirstColumn.Add(new SmallFish());
-            else if (x >= 40 && x < 99)
+            else if (x >= 40 && x < 75)
                 FirstColumn.Add(new MediumFish());
             else if (x >= 99 && x <= 100)
                 FirstColumn.Add(new DestroyerFish());
@@ -62,7 +62,7 @@ namespace AquariumGame.Models
             x = rand.Next(100);
             if (0 <= x && x < 40)
                 SecondColumn.Add(new SmallFish());
-            else if (x >= 40 && x < 99)
+            else if (x >= 40 && x < 75)
                 SecondColumn.Add(new MediumFish());
             else if (x >= 99 && x <= 100)
                 SecondColumn.Add(new DestroyerFish());
@@ -71,7 +71,7 @@ namespace AquariumGame.Models
             x = rand.Next(100);
             if (0 <= x && x < 40)
                 ThirdColumn.Add(new SmallFish());
-            else if (x >= 40 && x < 99)
+            else if (x >= 40 && x < 75)
                 ThirdColumn.Add(new MediumFish());
             else if (x >= 99 && x <= 100)
                 ThirdColumn.Add(new DestroyerFish());
@@ -80,7 +80,7 @@ namespace AquariumGame.Models
             x = rand.Next(100);
             if (0 <= x && x < 40)
                 FourthColumn.Add(new SmallFish());
-            else if (x >= 40 && x < 99)
+            else if (x >= 40 && x < 75)
                 FourthColumn.Add(new MediumFish());
             else if (x >= 99 && x <= 100)
                 FourthColumn.Add(new DestroyerFish());
@@ -89,7 +89,7 @@ namespace AquariumGame.Models
             x = rand.Next(100);
             if (0 <= x && x < 40)
                 FifthColumn.Add(new SmallFish());
-            else if (x >= 40 && x < 99)
+            else if (x >= 40 && x < 75)
                 FifthColumn.Add(new MediumFish());
             else if (x >= 99 && x <= 100)
                 FifthColumn.Add(new DestroyerFish());
@@ -98,7 +98,7 @@ namespace AquariumGame.Models
             x = rand.Next(100);
             if (0 <= x && x < 40)
                 SixthColumn.Add(new SmallFish());
-            else if (x >= 40 && x < 99)
+            else if (x >= 40 && x < 75)
                 SixthColumn.Add(new MediumFish());
             else if (x >= 99 && x <= 100)
                 SixthColumn.Add(new DestroyerFish());
