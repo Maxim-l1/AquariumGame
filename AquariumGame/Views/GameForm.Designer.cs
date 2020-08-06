@@ -112,7 +112,7 @@
             // 
             // AddTimer
             // 
-            this.AddTimer.Interval = 30000;
+            this.AddTimer.Interval = 20000;
             this.AddTimer.Tick += new System.EventHandler(this.AddTimer_Tick);
             // 
             // GameForm
